@@ -48,9 +48,28 @@
 
 然后它们进入竞技场，被同一套规则评分。胜出的变体会被选择、融合，生成下一代 ascended skill，并留下 lineage report。
 
-<p align="center">
-  <img src="pantheon/assets/evolution-arena.svg" alt="Pantheon evolution arena chart">
-</p>
+```mermaid
+flowchart LR
+    seed["第 0 代<br/>种子 skill<br/><b>8/10</b>"]
+    fork{{"分叉"}}
+    smith["Smith 变体<br/><b>9/10</b>"]
+    oracle["Oracle 变体<br/><b>9/10</b>"]
+    judge["Judge 变体<br/><b>9/10</b>"]
+    arena["Arena 变体<br/><b>9/10</b>"]
+    archivist["Archivist 变体<br/><b>9/10</b>"]
+    select{{"选择胜者"}}
+    ascend["第 2 代<br/>Ascended skill<br/><b>9/10</b>"]
+
+    seed --> fork
+    fork --> smith
+    fork --> oracle
+    fork --> judge
+    fork --> arena
+    fork --> archivist
+    smith --> select
+    oracle --> select
+    select --> ascend
+```
 
 ## 为什么这比“写个 prompt”更重要
 
@@ -114,9 +133,17 @@ Pantheon 的思路是工程化的：
 
 现在不只是 12 条样本，而是跑了 104 个 case：
 
-<p align="center">
-  <img src="pantheon/assets/benchmark-results.svg" alt="Pantheon benchmark results chart">
-</p>
+```mermaid
+flowchart LR
+    builtin["内置 skill forge<br/>4 cases<br/>Baseline 2.00 -> Pantheon <b>8.25</b><br/>提升 4.1x"]
+    alpaca["Stanford Alpaca<br/>50 cases<br/>Baseline 1.00 -> Pantheon <b>8.00</b><br/>提升 8.0x"]
+    prompts["awesome-chatgpt-prompts<br/>50 cases<br/>Baseline 1.62 -> Pantheon <b>8.00</b><br/>提升 4.9x"]
+    total["总竞技场<br/>104 cases<br/>Pantheon 加权均分 <b>8.01/10</b>"]
+
+    builtin --> total
+    alpaca --> total
+    prompts --> total
+```
 
 <table>
   <tr>
@@ -170,7 +197,7 @@ ascended skill: 9 / 10
 
 ```bash
 python3 pantheon/scripts/pantheon.py audit pantheon
-python3 pantheon/scripts/pantheon.py evolve --brief pantheon/experiments/skill-forge-basic.md --report pantheon/reports/evolution-demo.json --svg pantheon/assets/evolution-arena.svg
+python3 pantheon/scripts/pantheon.py evolve --brief pantheon/experiments/skill-forge-basic.md --report pantheon/reports/evolution-demo.json
 python3 pantheon/scripts/pantheon.py benchmark --dataset pantheon/experiments/pantheon-benchmark.jsonl --workdir /tmp/pantheon-bench --report pantheon/reports/builtin-4.json
 ```
 
@@ -206,6 +233,22 @@ Pantheon 可以进化，但不能偷偷进化。
 能力要有边界。  
 记忆要能被验证。
 
+## 如何引用
+
+如果 Pantheon 对你的项目、文章或实验有帮助，可以这样引用：
+
+```bibtex
+@software{pantheon_skills_2026,
+  title = {Pantheon-skills: A self-evolving Pantheon for AI skills},
+  author = {He, Jwei},
+  year = {2026},
+  url = {https://github.com/jweihe/Pantheon-skills},
+  note = {An evolution chamber for Codex skills: fork, mutate, benchmark, and ascend executable memory}
+}
+```
+
+仓库也提供了 [CITATION.cff](CITATION.cff)，GitHub 和 Zotero 等工具可以直接识别。
+
 ## 参考链接
 
 - [Pantheon / 万神殿剧集](https://en.wikipedia.org/wiki/Pantheon_(TV_series))
@@ -216,5 +259,3 @@ Pantheon 可以进化，但不能偷偷进化。
 - [实验评分标准](pantheon/references/experiment-rubric.md)
 - [多语言策略](pantheon/references/language-policy.md)
 - [进化报告](pantheon/reports/evolution-demo.json)
-- [Benchmark 图](pantheon/assets/benchmark-results.svg)
-- [进化图](pantheon/assets/evolution-arena.svg)

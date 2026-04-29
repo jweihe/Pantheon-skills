@@ -63,9 +63,28 @@ Pantheon gives those lessons a body.
   <img alt="Flow" src="https://img.shields.io/badge/winners-ascend-2ea043?style=for-the-badge">
 </p>
 
-<p align="center">
-  <img src="pantheon/assets/evolution-arena.svg" alt="Pantheon evolution arena chart">
-</p>
+```mermaid
+flowchart LR
+    seed["Generation 0<br/>Seed skill<br/><b>8/10</b>"]
+    fork{{"Fork"}}
+    smith["Smith mutation<br/><b>9/10</b>"]
+    oracle["Oracle mutation<br/><b>9/10</b>"]
+    judge["Judge mutation<br/><b>9/10</b>"]
+    arena["Arena mutation<br/><b>9/10</b>"]
+    archivist["Archivist mutation<br/><b>9/10</b>"]
+    select{{"Select winners"}}
+    ascend["Generation 2<br/>Ascended skill<br/><b>9/10</b>"]
+
+    seed --> fork
+    fork --> smith
+    fork --> oracle
+    fork --> judge
+    fork --> arena
+    fork --> archivist
+    smith --> select
+    oracle --> select
+    select --> ascend
+```
 
 ## What Pantheon Does
 
@@ -111,9 +130,17 @@ Pantheon gives those lessons a body.
 
 Pantheon includes repeatable benchmark reports, not just screenshots and vibes.
 
-<p align="center">
-  <img src="pantheon/assets/benchmark-results.svg" alt="Pantheon benchmark results chart">
-</p>
+```mermaid
+flowchart LR
+    builtin["Built-in skill forge<br/>4 cases<br/>Baseline 2.00 -> Pantheon <b>8.25</b><br/>Lift: 4.1x"]
+    alpaca["Stanford Alpaca<br/>50 cases<br/>Baseline 1.00 -> Pantheon <b>8.00</b><br/>Lift: 8.0x"]
+    prompts["awesome-chatgpt-prompts<br/>50 cases<br/>Baseline 1.62 -> Pantheon <b>8.00</b><br/>Lift: 4.9x"]
+    total["Total arena<br/>104 cases<br/>Weighted Pantheon avg <b>8.01/10</b>"]
+
+    builtin --> total
+    alpaca --> total
+    prompts --> total
+```
 
 <table>
   <tr>
@@ -167,7 +194,7 @@ These scores are engineering evidence, not a universal quality claim. The point 
 ```bash
 python3 pantheon/scripts/pantheon.py audit pantheon
 python3 pantheon/scripts/pantheon.py distill --input pantheon/experiments/skill-forge-basic.md
-python3 pantheon/scripts/pantheon.py evolve --brief pantheon/experiments/skill-forge-basic.md --report pantheon/reports/evolution-demo.json --svg pantheon/assets/evolution-arena.svg
+python3 pantheon/scripts/pantheon.py evolve --brief pantheon/experiments/skill-forge-basic.md --report pantheon/reports/evolution-demo.json
 python3 pantheon/scripts/pantheon.py experiment --case pantheon/experiments/skill-forge-basic.md --workdir /tmp/pantheon-exp
 python3 pantheon/scripts/pantheon.py benchmark --dataset pantheon/experiments/pantheon-benchmark.jsonl --workdir /tmp/pantheon-bench
 ```
@@ -206,8 +233,6 @@ pantheon/
 ├── SKILL.md
 ├── agents/openai.yaml
 ├── assets/
-│   ├── benchmark-results.svg
-│   ├── evolution-arena.svg
 │   └── pantheon-mark.svg
 ├── experiments/
 │   ├── pantheon-benchmark.jsonl
@@ -262,6 +287,22 @@ Keep the human memory.
 
 Make it operational.
 
+## How To Cite
+
+If Pantheon helps your work, cite the repository directly:
+
+```bibtex
+@software{pantheon_skills_2026,
+  title = {Pantheon-skills: A self-evolving Pantheon for AI skills},
+  author = {He, Jwei},
+  year = {2026},
+  url = {https://github.com/jweihe/Pantheon-skills},
+  note = {An evolution chamber for Codex skills: fork, mutate, benchmark, and ascend executable memory}
+}
+```
+
+This repository also includes [CITATION.cff](CITATION.cff) for citation tools.
+
 ## References
 
 - [Pantheon TV series](https://en.wikipedia.org/wiki/Pantheon_(TV_series))
@@ -272,5 +313,3 @@ Make it operational.
 - [Experiment rubric](pantheon/references/experiment-rubric.md)
 - [Language policy](pantheon/references/language-policy.md)
 - [Evolution report](pantheon/reports/evolution-demo.json)
-- [Benchmark chart](pantheon/assets/benchmark-results.svg)
-- [Evolution chart](pantheon/assets/evolution-arena.svg)

@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If Pantheon-skills helps your work, please cite it using the metadata below."
+title: "Pantheon-skills: A self-evolving Pantheon for AI skills"
+authors:
+  - family-names: "He"
+    given-names: "Jwei"
+repository-code: "https://github.com/jweihe/Pantheon-skills"
+url: "https://github.com/jweihe/Pantheon-skills"
+date-released: "2026-04-30"
+version: "0.1.0"
+abstract: "An evolution chamber for Codex skills: fork workflows, mutate strategies, benchmark survivors, and preserve executable memory."
+keywords:
+  - "Codex skills"
+  - "AI agents"
+  - "self-evolving systems"
+  - "skill evolution"
+  - "benchmarking"
+license: "MIT"
