@@ -261,3 +261,16 @@ Pantheon is a place to preserve those rituals without freezing them. Skills can 
 Keep the human memory.
 
 Make it operational.
+
+## References
+
+- [Pantheon TV series](https://en.wikipedia.org/wiki/Pantheon_(TV_series))
+- [Stanford Alpaca dataset](https://github.com/tatsu-lab/stanford_alpaca)
+- [awesome-chatgpt-prompts dataset](https://github.com/f/awesome-chatgpt-prompts)
+- [Codex skill definition](pantheon/SKILL.md)
+- [Evolution protocol](pantheon/references/evolution-protocol.md)
+- [Experiment rubric](pantheon/references/experiment-rubric.md)
+- [Language policy](pantheon/references/language-policy.md)
+- [Evolution report](pantheon/reports/evolution-demo.json)
+- [Benchmark chart](pantheon/assets/benchmark-results.svg)
+- [Evolution chart](pantheon/assets/evolution-arena.svg)

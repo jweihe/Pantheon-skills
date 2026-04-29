@@ -679,14 +679,16 @@ def generate_results_svg(report_paths: list[Path], out: Path, title: str = "Pant
     if not reports:
         raise ValueError("at least one report is required")
 
-    width = 1100
-    height = 580
-    margin_left = 96
-    chart_top = 142
-    chart_height = 290
-    group_width = 270
-    bar_width = 46
-    gap = 18
+    width = 1200
+    height = 680
+    chart_left = 108
+    chart_right = 1092
+    chart_top = 190
+    chart_bottom = 500
+    chart_height = chart_bottom - chart_top
+    group_width = (chart_right - chart_left) / len(reports)
+    bar_width = 48
+    gap = 20
     max_score = 10
     total_cases = sum(int(data["cases"]) for _, data in reports)
     baseline_avg = sum(float(data["baseline_avg"]) * int(data["cases"]) for _, data in reports) / total_cases
@@ -705,44 +707,43 @@ def generate_results_svg(report_paths: list[Path], out: Path, title: str = "Pant
         '<feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#000" flood-opacity="0.25"/>',
         "</filter>",
         "</defs>",
-        '<rect width="1100" height="580" rx="32" fill="url(#bg)"/>',
-        '<circle cx="978" cy="96" r="72" fill="#f5c86a" opacity="0.12"/>',
-        '<circle cx="138" cy="486" r="90" fill="#0969da" opacity="0.12"/>',
-        f'<text x="64" y="72" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">{html.escape(title)}</text>',
-        '<text x="64" y="106" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="16">Baseline templates vs Pantheon-generated skills across built-in and public benchmark samples.</text>',
+        f'<rect width="{width}" height="{height}" rx="34" fill="url(#bg)"/>',
+        '<circle cx="1040" cy="100" r="82" fill="#f5c86a" opacity="0.10"/>',
+        '<circle cx="132" cy="586" r="96" fill="#0969da" opacity="0.10"/>',
+        f'<text x="64" y="76" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="850">{html.escape(title)}</text>',
+        '<text x="64" y="112" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="16">Naive templates vs Pantheon-generated skills across built-in and public benchmark samples.</text>',
     ]
 
-    metric_x = 670
+    metric_x = 720
     metrics = [
         ("Cases", str(total_cases)),
         ("Pantheon avg", f"{pantheon_avg:.2f}/10"),
         ("Lift", f"{lift:.1f}x"),
     ]
     for i, (label, value) in enumerate(metrics):
-        x = metric_x + i * 128
+        x = metric_x + i * 142
         parts.extend([
-            f'<rect x="{x}" y="42" width="112" height="70" rx="16" fill="#ffffff" opacity="0.08" filter="url(#shadow)"/>',
-            f'<text x="{x + 16}" y="70" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="13">{label}</text>',
-            f'<text x="{x + 16}" y="98" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">{value}</text>',
+            f'<rect x="{x}" y="50" width="126" height="76" rx="18" fill="#ffffff" opacity="0.08" filter="url(#shadow)"/>',
+            f'<text x="{x + 18}" y="79" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="13">{label}</text>',
+            f'<text x="{x + 18}" y="108" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="850">{value}</text>',
         ])
 
-    # Axis and grid.
+    parts.append(f'<line x1="{chart_left}" y1="{chart_bottom}" x2="{chart_right}" y2="{chart_bottom}" stroke="#ffffff" stroke-opacity="0.22"/>')
     for score in range(0, 11, 2):
-        y = chart_top + chart_height - (score / max_score) * chart_height
-        parts.append(f'<line x1="{margin_left}" y1="{y:.1f}" x2="{width - 64}" y2="{y:.1f}" stroke="#ffffff" stroke-opacity="0.08"/>')
-        parts.append(f'<text x="62" y="{y + 5:.1f}" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="12">{score}</text>')
+        y = chart_bottom - (score / max_score) * chart_height
+        parts.append(f'<line x1="{chart_left}" y1="{y:.1f}" x2="{chart_right}" y2="{y:.1f}" stroke="#ffffff" stroke-opacity="0.08"/>')
+        parts.append(f'<text x="{chart_left - 28}" y="{y + 5:.1f}" text-anchor="end" fill="#aaa6bd" font-family="Inter, Arial, sans-serif" font-size="12">{score}</text>')
 
-    start_x = margin_left + 70
     for index, (label, data) in enumerate(reports):
-        x0 = start_x + index * group_width
+        center = chart_left + group_width * index + group_width / 2
         baseline = float(data["baseline_avg"])
         pantheon = float(data["pantheon_avg"])
         base_h = baseline / max_score * chart_height
         pan_h = pantheon / max_score * chart_height
-        base_x = x0
-        pan_x = x0 + bar_width + gap
-        base_y = chart_top + chart_height - base_h
-        pan_y = chart_top + chart_height - pan_h
+        base_x = center - bar_width - gap / 2
+        pan_x = center + gap / 2
+        base_y = chart_bottom - base_h
+        pan_y = chart_bottom - pan_h
         label_lines = split_label(label)
         parts.extend([
             f'<rect x="{base_x}" y="{base_y:.1f}" width="{bar_width}" height="{base_h:.1f}" rx="10" fill="#7d7894"/>',
@@ -751,15 +752,15 @@ def generate_results_svg(report_paths: list[Path], out: Path, title: str = "Pant
             f'<text x="{pan_x + bar_width / 2}" y="{pan_y - 10:.1f}" text-anchor="middle" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">{pantheon:.2f}</text>',
         ])
         for line_index, line in enumerate(label_lines):
-            parts.append(f'<text x="{x0 + 55}" y="{chart_top + chart_height + 38 + line_index * 18}" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="14">{html.escape(line)}</text>')
-        parts.append(f'<text x="{x0 + 55}" y="{chart_top + chart_height + 92}" text-anchor="middle" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="12">{int(data["cases"])} cases</text>')
+            parts.append(f'<text x="{center}" y="{chart_bottom + 36 + line_index * 18}" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="14">{html.escape(line)}</text>')
+        parts.append(f'<text x="{center}" y="{chart_bottom + 92}" text-anchor="middle" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="12">{int(data["cases"])} cases</text>')
 
     parts.extend([
-        '<rect x="690" y="484" width="16" height="16" rx="4" fill="#7d7894"/>',
-        '<text x="714" y="497" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="14">Naive baseline</text>',
-        '<rect x="840" y="484" width="16" height="16" rx="4" fill="#f5c86a"/>',
-        '<text x="864" y="497" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="14">Pantheon</text>',
-        '<text x="64" y="536" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="13">Scores are engineering evidence from repeatable audits, not a universal quality claim.</text>',
+        '<rect x="760" y="590" width="16" height="16" rx="4" fill="#7d7894"/>',
+        '<text x="784" y="603" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="14">Naive baseline</text>',
+        '<rect x="920" y="590" width="16" height="16" rx="4" fill="#f5c86a"/>',
+        '<text x="944" y="603" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="14">Pantheon</text>',
+        '<text x="64" y="620" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="13">Repeatable audit scores, not a universal quality claim.</text>',
         "</svg>",
     ])
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -852,7 +853,7 @@ def run_evolution(brief_path: Path, workdir: Path, out_report: Path | None, out_
 
 def generate_evolution_svg(report: dict[str, object], out: Path) -> None:
     width = 1200
-    height = 620
+    height = 680
     gen0 = report["generation_0"]  # type: ignore[index]
     gen1 = report["generation_1"]  # type: ignore[index]
     gen2 = report["generation_2"]  # type: ignore[index]
@@ -862,11 +863,15 @@ def generate_evolution_svg(report: dict[str, object], out: Path) -> None:
     asc_score = int(gen2["score"])  # type: ignore[index]
     best = max(candidates, key=lambda item: int(item["score"]))
 
+    chart_top = 220
+    chart_bottom = 510
+    chart_height = chart_bottom - chart_top
+
     def bar_h(score: int) -> float:
-        return score / max_score * 260
+        return score / max_score * chart_height
 
     parts = [
-        '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-label="Pantheon skill evolution lineage">',
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="Pantheon skill evolution lineage">',
         "<defs>",
         '<linearGradient id="evoBg" x1="0" y1="0" x2="1" y2="1">',
         '<stop offset="0%" stop-color="#111018"/>',
@@ -875,49 +880,48 @@ def generate_evolution_svg(report: dict[str, object], out: Path) -> None:
         "</linearGradient>",
         '<marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L8,3 z" fill="#f5c86a"/></marker>',
         "</defs>",
-        '<rect width="1200" height="620" rx="34" fill="url(#evoBg)"/>',
+        f'<rect width="{width}" height="{height}" rx="34" fill="url(#evoBg)"/>',
         '<text x="64" y="72" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="850">Skill Evolution Arena</text>',
         '<text x="64" y="108" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="16">Fork variants, score them, select winners, merge traits, preserve lineage.</text>',
-        '<text x="64" y="154" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Generation 0</text>',
-        '<text x="428" y="154" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Generation 1: Mutations</text>',
-        '<text x="990" y="154" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Generation 2</text>',
+        '<text x="82" y="164" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Generation 0</text>',
+        '<text x="392" y="164" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Generation 1: Mutations</text>',
+        '<text x="960" y="164" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Generation 2</text>',
+        f'<line x1="72" y1="{chart_bottom}" x2="1128" y2="{chart_bottom}" stroke="#ffffff" stroke-opacity="0.18"/>',
     ]
-    # Seed node.
     seed_h = bar_h(seed_score)
     parts.extend([
-        '<rect x="82" y="210" width="170" height="250" rx="24" fill="#ffffff" opacity="0.08"/>',
-        '<text x="167" y="248" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Seed Skill</text>',
-        f'<rect x="139" y="{430 - seed_h:.1f}" width="56" height="{seed_h:.1f}" rx="12" fill="#7d7894"/>',
-        f'<text x="167" y="{414 - seed_h:.1f}" text-anchor="middle" fill="#d8d5e6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">{seed_score}/10</text>',
+        '<rect x="82" y="196" width="180" height="350" rx="26" fill="#ffffff" opacity="0.08"/>',
+        '<text x="172" y="238" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Seed Skill</text>',
+        f'<rect x="144" y="{chart_bottom - seed_h:.1f}" width="56" height="{seed_h:.1f}" rx="12" fill="#7d7894"/>',
+        f'<text x="172" y="{chart_bottom - seed_h - 12:.1f}" text-anchor="middle" fill="#d8d5e6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">{seed_score}/10</text>',
+        '<text x="172" y="574" text-anchor="middle" fill="#aaa6bd" font-family="Inter, Arial, sans-serif" font-size="13">initial draft</text>',
     ])
-    # Candidate nodes.
-    start_x = 350
+    start_x = 342
     for index, candidate in enumerate(candidates):
-        x = start_x + index * 116
+        x = start_x + index * 112
         score = int(candidate["score"])
         h = bar_h(score)
         color = "#f5c86a" if candidate is best else "#0969da"
         mutation = str(candidate["mutation"]).title()
         parts.extend([
-            f'<rect x="{x}" y="206" width="92" height="260" rx="20" fill="#ffffff" opacity="0.07"/>',
-            f'<rect x="{x + 24}" y="{430 - h:.1f}" width="44" height="{h:.1f}" rx="10" fill="{color}"/>',
-            f'<text x="{x + 46}" y="{414 - h:.1f}" text-anchor="middle" fill="{color}" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">{score}</text>',
-            f'<text x="{x + 46}" y="494" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="13">{html.escape(mutation)}</text>',
+            f'<rect x="{x}" y="196" width="86" height="350" rx="20" fill="#ffffff" opacity="0.07"/>',
+            f'<rect x="{x + 22}" y="{chart_bottom - h:.1f}" width="42" height="{h:.1f}" rx="10" fill="{color}"/>',
+            f'<text x="{x + 43}" y="{chart_bottom - h - 10:.1f}" text-anchor="middle" fill="{color}" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">{score}</text>',
+            f'<text x="{x + 43}" y="574" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="13">{html.escape(mutation)}</text>',
         ])
-    # Ascended node.
     asc_h = bar_h(asc_score)
     parts.extend([
-        '<rect x="978" y="196" width="174" height="280" rx="28" fill="#f5c86a" opacity="0.15" stroke="#f5c86a" stroke-opacity="0.55"/>',
-        '<text x="1065" y="238" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="850">Ascended</text>',
-        f'<rect x="1037" y="{430 - asc_h:.1f}" width="56" height="{asc_h:.1f}" rx="12" fill="#f5c86a"/>',
-        f'<text x="1065" y="{414 - asc_h:.1f}" text-anchor="middle" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="850">{asc_score}/10</text>',
+        '<rect x="954" y="196" width="184" height="350" rx="28" fill="#f5c86a" opacity="0.14" stroke="#f5c86a" stroke-opacity="0.58"/>',
+        '<text x="1046" y="238" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="850">Ascended</text>',
+        f'<rect x="1018" y="{chart_bottom - asc_h:.1f}" width="56" height="{asc_h:.1f}" rx="12" fill="#f5c86a"/>',
+        f'<text x="1046" y="{chart_bottom - asc_h - 12:.1f}" text-anchor="middle" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="850">{asc_score}/10</text>',
+        '<text x="1046" y="574" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="13">merged survivor</text>',
     ])
-    # Arrows and metrics.
     parts.extend([
-        '<line x1="260" y1="326" x2="330" y2="326" stroke="#f5c86a" stroke-width="4" marker-end="url(#arrow)" opacity="0.9"/>',
-        '<line x1="930" y1="326" x2="966" y2="326" stroke="#f5c86a" stroke-width="4" marker-end="url(#arrow)" opacity="0.9"/>',
-        f'<text x="64" y="556" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="15">Selection rule: top audited variants are merged into the ascended skill.</text>',
-        f'<text x="64" y="586" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="13">This chart shows bounded evolution: no silent replacement, only fork, score, select, merge, and record lineage.</text>',
+        '<line x1="276" y1="350" x2="320" y2="350" stroke="#f5c86a" stroke-width="4" marker-end="url(#arrow)" opacity="0.9"/>',
+        '<line x1="906" y1="350" x2="942" y2="350" stroke="#f5c86a" stroke-width="4" marker-end="url(#arrow)" opacity="0.9"/>',
+        '<text x="64" y="626" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="15">Selection rule: top audited variants are merged into the ascended skill.</text>',
+        '<text x="64" y="652" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="13">Bounded evolution means fork, score, select, merge, and record lineage before replacing anything durable.</text>',
         "</svg>",
     ])
     out.parent.mkdir(parents=True, exist_ok=True)

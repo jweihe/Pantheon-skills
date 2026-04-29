@@ -205,3 +205,16 @@ Pantheon 可以进化，但不能偷偷进化。
 进化要有记录。  
 能力要有边界。  
 记忆要能被验证。
+
+## 参考链接
+
+- [Pantheon / 万神殿剧集](https://en.wikipedia.org/wiki/Pantheon_(TV_series))
+- [Stanford Alpaca 数据集](https://github.com/tatsu-lab/stanford_alpaca)
+- [awesome-chatgpt-prompts 数据集](https://github.com/f/awesome-chatgpt-prompts)
+- [Codex skill 主文件](pantheon/SKILL.md)
+- [进化协议](pantheon/references/evolution-protocol.md)
+- [实验评分标准](pantheon/references/experiment-rubric.md)
+- [多语言策略](pantheon/references/language-policy.md)
+- [进化报告](pantheon/reports/evolution-demo.json)
+- [Benchmark 图](pantheon/assets/benchmark-results.svg)
+- [进化图](pantheon/assets/evolution-arena.svg)
