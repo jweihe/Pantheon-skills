@@ -1,22 +1,134 @@
-# Pantheon / 万神殿
+<p align="center">
+  <img src="pantheon/assets/pantheon-mark.svg" width="120" alt="Pantheon mark">
+</p>
 
-Pantheon is a Codex skill for creating and evolving other Codex skills.
+<h1 align="center">Pantheon / 万神殿</h1>
 
-[中文文档](README.zh-CN.md)
+<p align="center">
+  <strong>A bounded self-evolving Codex skill system that turns human workflows into validated, reusable AI memory.</strong>
+</p>
 
-The idea is borrowed from the emotional center of *Pantheon*: memory becomes useful only when it survives transformation without losing accountability. In this project, a skill is treated as an uploaded working memory: a repeatable procedure extracted from hard-won work, tested before it is trusted, and never silently rewritten.
+<p align="center">
+  <a href="README.zh-CN.md">中文文档</a>
+  ·
+  <a href="pantheon/SKILL.md">Skill</a>
+  ·
+  <a href="pantheon/reports/alpaca-12.json">Alpaca Report</a>
+  ·
+  <a href="pantheon/reports/prompts-12.json">Prompts Report</a>
+</p>
 
-## What It Does
+<p align="center">
+  <img alt="Codex Skill" src="https://img.shields.io/badge/Codex-Skill-17151f?style=for-the-badge">
+  <img alt="Self Evolving" src="https://img.shields.io/badge/Self--Evolving-Bounded-f5c86a?style=for-the-badge">
+  <img alt="Validation" src="https://img.shields.io/badge/Validation-10%2F10-brightgreen?style=for-the-badge">
+  <img alt="Language" src="https://img.shields.io/badge/Language-Multilingual-blue?style=for-the-badge">
+</p>
 
-- Distills messy briefs or past workflows into skill proposals.
-- Scaffolds valid Codex skill directories.
-- Audits skills for trigger clarity, context size, missing validation, placeholder text, and unsafe autonomy.
-- Runs experiments that generate a skill in a temporary directory and validate it.
-- Benchmarks Pantheon-generated skills against a naive baseline.
-- Downloads supported public datasets and transforms them into skill-creation benchmark cases.
-- Produces skill drafts and documentation in the user's preferred language when requested.
+---
 
-## Structure
+## The Pitch
+
+Most AI workflows die in chat history.
+
+Pantheon turns them into **skills**: small, installable packets of operational memory that can be audited, tested, benchmarked, localized, and evolved with consent.
+
+It is inspired by the emotional premise of *Pantheon*: what if memory could survive transformation? Here, the answer is practical. A workflow becomes a skill only after it gains structure, validation, and boundaries.
+
+> Not an agent swarm. Not a prompt dump. Not silent self-modification.
+>
+> Pantheon is a ritual for turning useful work into durable AI capability.
+
+## Why It Matters
+
+AI agents repeat themselves constantly:
+
+- rediscovering the same project conventions
+- forgetting the same validation steps
+- rewriting the same boilerplate
+- losing hard-won debugging knowledge
+- producing "helpful" instructions that cannot be tested
+
+Pantheon gives those lessons a body.
+
+```text
+messy task -> distilled workflow -> generated skill -> audit -> benchmark -> installable memory
+```
+
+## What Pantheon Does
+
+| Capability | What it means |
+| --- | --- |
+| Distill | Turn messy briefs, transcripts, or repeated work into skill proposals |
+| Scaffold | Generate valid Codex skill directories |
+| Audit | Check trigger clarity, placeholder text, context size, validation, and autonomy boundaries |
+| Experiment | Generate skills in temp dirs and verify them before trust |
+| Benchmark | Compare Pantheon output against a naive baseline |
+| Public datasets | Run samples from Stanford Alpaca and awesome-chatgpt-prompts |
+| Multilingual | Produce docs and skill guidance in the user's preferred language |
+
+## Results
+
+Pantheon includes repeatable benchmark reports, not just screenshots and vibes.
+
+| Benchmark | Cases | Baseline Avg | Pantheon Avg |
+| --- | ---: | ---: | ---: |
+| Built-in skill forge cases | 4 | 2.00 / 10 | 8.25 / 10 |
+| Stanford Alpaca sample | 12 | 1.00 / 10 | 8.00 / 10 |
+| awesome-chatgpt-prompts sample | 12 | 1.75 / 10 | 8.00 / 10 |
+
+Validation:
+
+```text
+Pantheon audit: 10 passed, 0 failed
+Codex quick_validate: Skill is valid
+Skill-forge experiment: 9 passed, 0 failed
+```
+
+Reports:
+
+- [pantheon/reports/alpaca-12.json](pantheon/reports/alpaca-12.json)
+- [pantheon/reports/prompts-12.json](pantheon/reports/prompts-12.json)
+
+These scores are engineering evidence, not a universal quality claim. The point is that the system has a proof loop: generate, audit, fail, revise, benchmark.
+
+## Quick Start
+
+```bash
+python3 pantheon/scripts/pantheon.py audit pantheon
+python3 pantheon/scripts/pantheon.py distill --input pantheon/experiments/skill-forge-basic.md
+python3 pantheon/scripts/pantheon.py experiment --case pantheon/experiments/skill-forge-basic.md --workdir /tmp/pantheon-exp
+python3 pantheon/scripts/pantheon.py benchmark --dataset pantheon/experiments/pantheon-benchmark.jsonl --workdir /tmp/pantheon-bench
+```
+
+Run public dataset samples:
+
+```bash
+python3 pantheon/scripts/pantheon.py benchmark-public --name alpaca --limit 12 --report pantheon/reports/alpaca-12.json
+python3 pantheon/scripts/pantheon.py benchmark-public --name awesome-chatgpt-prompts --limit 12 --report pantheon/reports/prompts-12.json
+```
+
+## Use It As A Codex Skill
+
+Install locally by symlinking the skill directory:
+
+```bash
+ln -s "$PWD/pantheon" "${CODEX_HOME:-$HOME/.codex}/skills/pantheon"
+```
+
+Then invoke it:
+
+```text
+Use $pantheon to turn this repeated workflow into a validated Codex skill.
+```
+
+Chinese works too:
+
+```text
+使用 $pantheon，把这个重复工作流沉淀成一个经过验证的 Codex skill。
+```
+
+## Project Layout
 
 ```text
 pantheon/
@@ -36,110 +148,40 @@ pantheon/
 └── scripts/pantheon.py
 ```
 
-## Quick Start
+## The Safety Model
 
-Run from the repository root:
-
-```bash
-python3 pantheon/scripts/pantheon.py audit pantheon
-python3 pantheon/scripts/pantheon.py distill --input pantheon/experiments/skill-forge-basic.md
-python3 pantheon/scripts/pantheon.py experiment --case pantheon/experiments/skill-forge-basic.md --workdir /tmp/pantheon-exp
-python3 pantheon/scripts/pantheon.py benchmark --dataset pantheon/experiments/pantheon-benchmark.jsonl --workdir /tmp/pantheon-bench
-```
-
-To run public dataset samples:
-
-```bash
-python3 pantheon/scripts/pantheon.py benchmark-public --name alpaca --limit 12 --report pantheon/reports/alpaca-12.json
-python3 pantheon/scripts/pantheon.py benchmark-public --name awesome-chatgpt-prompts --limit 12 --report pantheon/reports/prompts-12.json
-```
-
-Supported public adapters:
-
-- `alpaca`: Stanford Alpaca instruction data from `tatsu-lab/stanford_alpaca`
-- `awesome-chatgpt-prompts`: prompt-role data from `f/awesome-chatgpt-prompts`
-
-## Experiment Design
-
-The benchmark compares two generators on the same briefs:
-
-- **Baseline**: creates a minimal generic skill.
-- **Pantheon**: creates a skill with workflow, references, validation, and bounded-autonomy expectations.
-
-Each generated skill is scored from 0 to 10:
-
-- Trigger clarity
-- Workflow leverage
-- Resource fit
-- Validation integrity
-- Bounded autonomy
-
-These scores are engineering evidence, not a scientific claim. They are useful because they can fail, can be repeated, and can expose weak skill designs before installation.
-
-## Current Local Results
-
-Built-in benchmark:
-
-```text
-cases: 4
-baseline_avg: 2.0 / 10
-pantheon_avg: 8.25 / 10
-```
-
-Public benchmark samples:
-
-```text
-Stanford Alpaca sample, 12 cases:
-baseline_avg: 1.0 / 10
-pantheon_avg: 8.0 / 10
-report: pantheon/reports/alpaca-12.json
-
-awesome-chatgpt-prompts sample, 12 cases:
-baseline_avg: 1.75 / 10
-pantheon_avg: 8.0 / 10
-report: pantheon/reports/prompts-12.json
-```
-
-Validation:
-
-```text
-Pantheon audit: 10 passed, 0 failed
-Codex quick_validate: Skill is valid
-Skill-forge experiment: 9 passed, 0 failed
-```
-
-Public dataset reports are written under `pantheon/reports/`. They include per-case scores and audit failures for both baseline and Pantheon generations.
-
-## Installation As A Codex Skill
-
-For local discovery, copy or symlink the `pantheon` directory into your Codex skills directory:
-
-```bash
-ln -s "$PWD/pantheon" "${CODEX_HOME:-$HOME/.codex}/skills/pantheon"
-```
-
-Then invoke it in a prompt:
-
-```text
-Use $pantheon to turn this repeated workflow into a validated Codex skill.
-```
-
-## Safety Model
-
-Pantheon is intentionally not a silent self-modifier.
+Pantheon is designed to evolve skills without pretending that autonomy is free.
 
 It may:
 
-- Propose evolutions.
-- Generate patches.
-- Run audits and benchmarks.
-- Produce installable skill drafts.
+- propose evolutions
+- generate patches
+- run audits and benchmarks
+- produce installable skill drafts
 
 It must not:
 
-- Replace installed skills without confirmation.
-- Claim validation that did not run.
-- Hide destructive changes behind poetic language.
-- Treat benchmark scores as proof of universal quality.
+- replace installed skills without confirmation
+- claim validation that did not run
+- hide destructive changes behind mythic language
+- treat benchmark scores as proof of universal quality
 
-The romantic claim is simple: keep the human memory, but make it operational.
+## Roadmap
+
+- Larger public benchmark adapters
+- Human preference review for generated skill drafts
+- Cross-language skill quality checks
+- Regression tests for skill evolution
+- A gallery of generated "deity" skills for common agent workflows
+
+## The Manifesto
+
+Every team has invisible rituals.
+
+The commands people remember. The checks they run before shipping. The weird bug they only fixed once. The review comment that taught them how the system really works.
+
+Pantheon is a place to preserve those rituals without freezing them. Skills can evolve, but only under witness. Memory can become executable, but it must remain accountable.
+
+Keep the human memory.
+
+Make it operational.
