@@ -61,12 +61,13 @@ From the Pantheon skill directory:
 ```bash
 python3 scripts/pantheon.py distill --input path/to/notes.md
 python3 scripts/pantheon.py scaffold --brief path/to/brief.md --out /tmp/skills
+python3 scripts/pantheon.py evolve --brief path/to/brief.md --report reports/evolution.json --svg assets/evolution.svg
 python3 scripts/pantheon.py audit path/to/skill
 python3 scripts/pantheon.py experiment --case experiments/skill-forge-basic.md --workdir /tmp/pantheon-exp
 python3 scripts/pantheon.py benchmark --dataset experiments/pantheon-benchmark.jsonl --workdir /tmp/pantheon-bench
 python3 scripts/pantheon.py download-dataset --url https://example.com/skills.jsonl --out /tmp/skills.jsonl
-python3 scripts/pantheon.py benchmark-public --name alpaca --limit 12 --report reports/alpaca-12.json
-python3 scripts/pantheon.py benchmark-public --name awesome-chatgpt-prompts --limit 12 --report reports/prompts-12.json
+python3 scripts/pantheon.py benchmark-public --name alpaca --limit 50 --report reports/alpaca-50.json
+python3 scripts/pantheon.py benchmark-public --name awesome-chatgpt-prompts --limit 50 --report reports/prompts-50.json
 ```
 
 Read `references/evolution-protocol.md` before evolving an installed skill. Read `references/experiment-rubric.md` before claiming the skill has been proven useful.
@@ -75,6 +76,8 @@ Read `references/language-policy.md` when the user asks for Chinese, bilingual, 
 ## Experiments
 
 Use the built-in benchmark for a fast proof loop. It compares a naive baseline generator against Pantheon generation on JSONL briefs and scores trigger clarity, workflow leverage, resource fit, validation integrity, and bounded autonomy.
+
+Use `evolve` when the user wants the Pantheon core loop: fork multiple skill variants, score them, select winners, merge traits, and preserve a lineage report.
 
 Use `benchmark-public` for public dataset samples. Current adapters support Stanford Alpaca and awesome-chatgpt-prompts; both are transformed into skill-creation briefs before scoring.
 

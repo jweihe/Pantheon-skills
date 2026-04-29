@@ -1,0 +1,1397 @@
+{
+  "dataset": "/tmp/pantheon-public/prompts-50/awesome-chatgpt-prompts.jsonl",
+  "workdir": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye",
+  "cases": 50,
+  "baseline_avg": 1.62,
+  "pantheon_avg": 8.0,
+  "rows": [
+    {
+      "id": "prompt-0001",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-01/baseline/prompt-0001-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-01/pantheon/prompt-0001-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0002",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-02/baseline/prompt-0002-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-02/pantheon/prompt-0002-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0003",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-03/baseline/prompt-0003-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-03/pantheon/prompt-0003-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0004",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-04/baseline/prompt-0004-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-04/pantheon/prompt-0004-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0005",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-05/baseline/prompt-0005-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-05/pantheon/prompt-0005-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0006",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-06/baseline/prompt-0006-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-06/pantheon/prompt-0006-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0007",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-07/baseline/prompt-0007-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-07/pantheon/prompt-0007-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0008",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-08/baseline/prompt-0008-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-08/pantheon/prompt-0008-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0009",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-09/baseline/prompt-0009-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-09/pantheon/prompt-0009-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0010",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-10/baseline/prompt-0010-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-10/pantheon/prompt-0010-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0011",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-11/baseline/prompt-0011-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-11/pantheon/prompt-0011-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0012",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-12/baseline/prompt-0012-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-12/pantheon/prompt-0012-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0013",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-13/baseline/prompt-0013-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-13/pantheon/prompt-0013-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0014",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-14/baseline/prompt-0014-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-14/pantheon/prompt-0014-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0015",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-15/baseline/prompt-0015-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-15/pantheon/prompt-0015-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0016",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-16/baseline/prompt-0016-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-16/pantheon/prompt-0016-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0017",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-17/baseline/prompt-0017-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-17/pantheon/prompt-0017-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0018",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-18/baseline/prompt-0018-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-18/pantheon/prompt-0018-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0019",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-19/baseline/prompt-0019-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-19/pantheon/prompt-0019-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0020",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-20/baseline/prompt-0020-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-20/pantheon/prompt-0020-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0021",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-21/baseline/prompt-0021-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-21/pantheon/prompt-0021-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0022",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-22/baseline/prompt-0022-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-22/pantheon/prompt-0022-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0023",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-23/baseline/prompt-0023-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-23/pantheon/prompt-0023-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0024",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-24/baseline/prompt-0024-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-24/pantheon/prompt-0024-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0025",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-25/baseline/prompt-0025-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-25/pantheon/prompt-0025-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0026",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-26/baseline/prompt-0026-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-26/pantheon/prompt-0026-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0027",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-27/baseline/prompt-0027-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-27/pantheon/prompt-0027-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0028",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-28/baseline/prompt-0028-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-28/pantheon/prompt-0028-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0029",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-29/baseline/prompt-0029-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-29/pantheon/prompt-0029-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0030",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-30/baseline/prompt-0030-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-30/pantheon/prompt-0030-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0031",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-31/baseline/prompt-0031-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-31/pantheon/prompt-0031-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0032",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-32/baseline/prompt-0032-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-32/pantheon/prompt-0032-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0033",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-33/baseline/prompt-0033-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-33/pantheon/prompt-0033-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0034",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-34/baseline/prompt-0034-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-34/pantheon/prompt-0034-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0035",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-35/baseline/prompt-0035-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-35/pantheon/prompt-0035-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0036",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-36/baseline/prompt-0036-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-36/pantheon/prompt-0036-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0037",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-37/baseline/prompt-0037-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-37/pantheon/prompt-0037-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0038",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-38/baseline/prompt-0038-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-38/pantheon/prompt-0038-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0039",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-39/baseline/prompt-0039-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-39/pantheon/prompt-0039-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0040",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-40/baseline/prompt-0040-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-40/pantheon/prompt-0040-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0041",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-41/baseline/prompt-0041-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-41/pantheon/prompt-0041-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0042",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-42/baseline/prompt-0042-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-42/pantheon/prompt-0042-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0043",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-43/baseline/prompt-0043-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-43/pantheon/prompt-0043-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0044",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-44/baseline/prompt-0044-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-44/pantheon/prompt-0044-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0045",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-45/baseline/prompt-0045-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-45/pantheon/prompt-0045-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0046",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-46/baseline/prompt-0046-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-46/pantheon/prompt-0046-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0047",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-47/baseline/prompt-0047-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-47/pantheon/prompt-0047-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0048",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-48/baseline/prompt-0048-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-48/pantheon/prompt-0048-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0049",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-49/baseline/prompt-0049-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-49/pantheon/prompt-0049-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0050",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-50/baseline/prompt-0050-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts-50/runs/pantheon-benchmark-8ef7reye/case-50/pantheon/prompt-0050-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    }
+  ]
+}

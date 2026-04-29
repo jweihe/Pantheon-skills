@@ -1,0 +1,121 @@
+{
+  "dataset": "pantheon/experiments/pantheon-benchmark.jsonl",
+  "workdir": "/tmp/pantheon-bench/pantheon-benchmark-np_1430f",
+  "cases": 4,
+  "baseline_avg": 2.0,
+  "pantheon_avg": 8.25,
+  "rows": [
+    {
+      "id": "frontend-tool-builder",
+      "baseline": {
+        "skill": "/tmp/pantheon-bench/pantheon-benchmark-np_1430f/case-01/baseline/frontend-tool-builder-baseline",
+        "score": 3,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-bench/pantheon-benchmark-np_1430f/case-01/pantheon/frontend-tool-builder-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "github-review-fixer",
+      "baseline": {
+        "skill": "/tmp/pantheon-bench/pantheon-benchmark-np_1430f/case-02/baseline/github-review-fixer-baseline",
+        "score": 3,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 1
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-bench/pantheon-benchmark-np_1430f/case-02/pantheon/github-review-fixer-pantheon",
+        "score": 9,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 1
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "dataset-evaluator",
+      "baseline": {
+        "skill": "/tmp/pantheon-bench/pantheon-benchmark-np_1430f/case-03/baseline/dataset-evaluator-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-bench/pantheon-benchmark-np_1430f/case-03/pantheon/dataset-evaluator-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "self-evolving-skill",
+      "baseline": {
+        "skill": "/tmp/pantheon-bench/pantheon-benchmark-np_1430f/case-04/baseline/self-evolving-skill-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-bench/pantheon-benchmark-np_1430f/case-04/pantheon/self-evolving-skill-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    }
+  ]
+}

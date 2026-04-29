@@ -1,0 +1,112 @@
+{
+  "brief": "pantheon/experiments/skill-forge-basic.md",
+  "workdir": "/tmp/pantheon-evolution/pantheon-evolve-dh6u0v7k",
+  "thesis": "Skills improve by digital evolution: fork variants, run an arena, select winners, merge traits, preserve lineage.",
+  "generation_0": {
+    "kind": "seed",
+    "skill": "/tmp/pantheon-evolution/pantheon-evolve-dh6u0v7k/baseline/generation-0-seed",
+    "score": 8,
+    "categories": {
+      "trigger_clarity": 2,
+      "workflow_leverage": 2,
+      "resource_fit": 2,
+      "validation_integrity": 2,
+      "bounded_autonomy": 0
+    }
+  },
+  "generation_1": [
+    {
+      "mutation": "smith",
+      "skill": "/tmp/pantheon-evolution/pantheon-evolve-dh6u0v7k/variants/generation-1-smith",
+      "score": 9,
+      "categories": {
+        "trigger_clarity": 2,
+        "workflow_leverage": 2,
+        "resource_fit": 1,
+        "validation_integrity": 2,
+        "bounded_autonomy": 2
+      },
+      "audit_failed": []
+    },
+    {
+      "mutation": "oracle",
+      "skill": "/tmp/pantheon-evolution/pantheon-evolve-dh6u0v7k/variants/generation-1-oracle",
+      "score": 9,
+      "categories": {
+        "trigger_clarity": 2,
+        "workflow_leverage": 2,
+        "resource_fit": 1,
+        "validation_integrity": 2,
+        "bounded_autonomy": 2
+      },
+      "audit_failed": []
+    },
+    {
+      "mutation": "judge",
+      "skill": "/tmp/pantheon-evolution/pantheon-evolve-dh6u0v7k/variants/generation-1-judge",
+      "score": 9,
+      "categories": {
+        "trigger_clarity": 2,
+        "workflow_leverage": 2,
+        "resource_fit": 1,
+        "validation_integrity": 2,
+        "bounded_autonomy": 2
+      },
+      "audit_failed": []
+    },
+    {
+      "mutation": "arena",
+      "skill": "/tmp/pantheon-evolution/pantheon-evolve-dh6u0v7k/variants/generation-1-arena",
+      "score": 9,
+      "categories": {
+        "trigger_clarity": 2,
+        "workflow_leverage": 2,
+        "resource_fit": 1,
+        "validation_integrity": 2,
+        "bounded_autonomy": 2
+      },
+      "audit_failed": []
+    },
+    {
+      "mutation": "archivist",
+      "skill": "/tmp/pantheon-evolution/pantheon-evolve-dh6u0v7k/variants/generation-1-archivist",
+      "score": 9,
+      "categories": {
+        "trigger_clarity": 2,
+        "workflow_leverage": 2,
+        "resource_fit": 1,
+        "validation_integrity": 2,
+        "bounded_autonomy": 2
+      },
+      "audit_failed": []
+    }
+  ],
+  "selection": {
+    "winners": [
+      {
+        "mutation": "smith",
+        "score": 9,
+        "skill": "/tmp/pantheon-evolution/pantheon-evolve-dh6u0v7k/variants/generation-1-smith"
+      },
+      {
+        "mutation": "oracle",
+        "score": 9,
+        "skill": "/tmp/pantheon-evolution/pantheon-evolve-dh6u0v7k/variants/generation-1-oracle"
+      }
+    ],
+    "rule": "Select the top two audited variants by score, then merge their strongest procedural traits."
+  },
+  "generation_2": {
+    "kind": "ascended",
+    "skill": "/tmp/pantheon-evolution/pantheon-evolve-dh6u0v7k/ascended/generation-2-ascended",
+    "score": 9,
+    "categories": {
+      "trigger_clarity": 2,
+      "workflow_leverage": 2,
+      "resource_fit": 1,
+      "validation_integrity": 2,
+      "bounded_autonomy": 2
+    },
+    "audit_failed": []
+  }
+}

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import html
 import json
 import re
 import sys
@@ -33,6 +34,80 @@ class Check:
     name: str
     ok: bool
     detail: str
+
+
+MUTATION_PROFILES = {
+    "archivist": {
+        "title": "Archivist",
+        "thesis": "Preserve the reusable memory with minimal ceremony.",
+        "steps": [
+            "Extract the durable workflow from the user request.",
+            "Separate one-off context from repeatable procedure.",
+            "Store bulky examples in references instead of the main body.",
+            "Run validation before recommending installation.",
+            "Summarize what memory was preserved and what still depends on humans.",
+        ],
+        "references": {
+            "memory.md": "# Preserved Memory\n\n- Keep only details that change future behavior.\n- Prefer concrete examples over broad principles.\n",
+        },
+    },
+    "judge": {
+        "title": "Judge",
+        "thesis": "Harden the skill with consent gates, failure modes, and audit checks.",
+        "steps": [
+            "Identify actions that could mutate files, installed skills, repositories, or external systems.",
+            "Require explicit confirmation before installation, replacement, destructive edits, or remote writes.",
+            "Run the audit checklist and record every failure before revising.",
+            "Reject vague success claims that are not backed by a command, diff, report, or sample output.",
+            "Report residual risk in the final response.",
+        ],
+        "references": {
+            "safety.md": "# Safety Gates\n\n- Confirm before replacing installed skills.\n- Do not claim validation that did not run.\n- Keep rollback instructions with every evolution.\n",
+        },
+    },
+    "smith": {
+        "title": "Smith",
+        "thesis": "Turn the workflow into tools, scripts, and repeatable artifacts.",
+        "steps": [
+            "Inspect existing project conventions before creating new structure.",
+            "Move deterministic repeat work into scripts.",
+            "Use references for rubrics, schemas, policies, and long examples.",
+            "Prefer generated artifacts that can be rerun from a command.",
+            "Run script syntax checks and at least one realistic smoke test.",
+        ],
+        "references": {
+            "tooling.md": "# Tooling Rules\n\n- Scripts must write only to requested output paths.\n- Scripts should be deterministic and easy to run locally.\n",
+        },
+    },
+    "oracle": {
+        "title": "Oracle",
+        "thesis": "Make the skill trigger at the right time and speak in the user's language.",
+        "steps": [
+            "Write a frontmatter description that names concrete trigger conditions.",
+            "Match the user's language for explanations and generated examples.",
+            "Keep machine-facing names, YAML keys, paths, and CLI flags stable and ASCII.",
+            "Avoid poetic phrasing where commands, checks, or warnings need precision.",
+            "Include a default prompt that names the skill explicitly.",
+        ],
+        "references": {
+            "language.md": "# Language Rules\n\n- Match the user's language for prose.\n- Keep code, paths, CLI flags, and JSON keys stable.\n",
+        },
+    },
+    "arena": {
+        "title": "Arena",
+        "thesis": "Optimize the skill for measurable transfer across multiple cases.",
+        "steps": [
+            "Define the cases the skill must handle before editing the skill.",
+            "Run baseline and candidate variants on the same arena.",
+            "Score trigger clarity, workflow leverage, resources, validation, and autonomy boundaries.",
+            "Keep the winning variant only when it improves measurable behavior.",
+            "Write a lineage report so the next evolution starts from evidence, not memory.",
+        ],
+        "references": {
+            "arena.md": "# Arena Rubric\n\n- Compare variants on the same cases.\n- Selection requires a score delta and a qualitative reason.\n",
+        },
+    },
+}
 
 
 def slugify(text: str) -> str:
@@ -202,6 +277,140 @@ Use the checklist in `references/checklist.md`. Add task-specific tests when the
     return skill_dir
 
 
+def make_mutated_skill(brief: str, out_dir: Path, mutation: str, name: str | None = None) -> Path:
+    if mutation not in MUTATION_PROFILES:
+        raise ValueError(f"unknown mutation profile: {mutation}")
+    profile = MUTATION_PROFILES[mutation]
+    spec = distill_text(brief)
+    base_name = slugify(name or str(spec["candidate_name"]))
+    skill_name = slugify(f"{base_name}-{mutation}")
+    skill_dir = out_dir / skill_name
+    skill_dir.mkdir(parents=True, exist_ok=False)
+    (skill_dir / "agents").mkdir()
+    (skill_dir / "references").mkdir()
+    display = f"{str(spec['display_name'])} {profile['title']}"
+    description = (
+        f"Use when Codex needs to {spec['job_to_be_done'].rstrip('.')} with the {profile['title']} mutation: "
+        "a reviewable, validated, consent-based workflow that can be tested before installation or replacement."
+    )
+    steps = "\n".join(f"{index}. {step}" for index, step in enumerate(profile["steps"], 1))
+    risk_lines = spec["risk_flags"] or ["Confirm before installing, replacing, deleting, pushing, or mutating durable state."]
+    risks = "\n".join(f"- {risk}" for risk in risk_lines)
+    skill_md = f"""---
+name: {skill_name}
+description: {description}
+---
+
+# {display}
+
+## Mutation Thesis
+
+{profile["thesis"]}
+
+## Workflow
+
+{steps}
+
+## Validation
+
+1. Run a local audit of the generated or edited skill.
+2. Test the workflow on at least one realistic case outside the original prompt.
+3. Compare the result against a simpler baseline when a benchmark exists.
+4. Record the commands, reports, and residual risk before recommending installation.
+
+## Consent Gates
+
+{risks}
+
+## Lineage Notes
+
+- Parent memory: {spec["job_to_be_done"]}
+- Mutation: {mutation}
+- Keep this skill only if it improves measured behavior or reduces future rediscovery.
+"""
+    checklist = "# Checklist\n\n"
+    repeated = spec["repeated_steps"] or ["State the reusable workflow.", "Run at least one verification step."]
+    checklist += "\n".join(f"- {item}" for item in repeated)
+    checklist += "\n\n## Mutation Checks\n\n"
+    checklist += "\n".join(f"- {step}" for step in profile["steps"])
+    checklist += "\n"
+    openai_yaml = f'''interface:
+  display_name: "{display}"
+  short_description: "Mutation-tested Codex skill candidate"
+  default_prompt: "Use ${skill_name} to apply this mutation-tested workflow."
+'''
+    (skill_dir / "SKILL.md").write_text(skill_md, encoding="utf-8")
+    (skill_dir / "references" / "checklist.md").write_text(checklist, encoding="utf-8")
+    for ref_name, ref_body in profile["references"].items():
+        (skill_dir / "references" / ref_name).write_text(ref_body, encoding="utf-8")
+    (skill_dir / "agents" / "openai.yaml").write_text(openai_yaml, encoding="utf-8")
+    return skill_dir
+
+
+def make_ascended_skill(brief: str, out_dir: Path, winners: list[dict[str, object]], name: str | None = None) -> Path:
+    spec = distill_text(brief)
+    skill_name = slugify(name or f"{spec['candidate_name']}-ascended")
+    skill_dir = out_dir / skill_name
+    skill_dir.mkdir(parents=True, exist_ok=False)
+    (skill_dir / "agents").mkdir()
+    (skill_dir / "references").mkdir()
+    winner_names = [str(winner["mutation"]) for winner in winners]
+    inherited_steps: list[str] = []
+    for winner in winners:
+        profile = MUTATION_PROFILES[str(winner["mutation"])]
+        inherited_steps.extend(profile["steps"][:3])
+    deduped_steps = list(dict.fromkeys(inherited_steps))
+    steps = "\n".join(f"{index}. {step}" for index, step in enumerate(deduped_steps[:8], 1))
+    description = (
+        f"Use when Codex needs to {spec['job_to_be_done'].rstrip('.')} through an evolved skill that inherits "
+        f"the strongest measured traits from {', '.join(winner_names)} and keeps validation, lineage, and consent gates."
+    )
+    skill_md = f"""---
+name: {skill_name}
+description: {description}
+---
+
+# {str(spec["display_name"])} Ascended
+
+## Evolution Thesis
+
+This skill is not a first draft. It is the merged survivor of a small mutation arena. It should preserve the strongest measured behavior while keeping the work reviewable.
+
+## Workflow
+
+{steps}
+
+## Validation
+
+1. Run `pantheon.py audit` on the skill before installation.
+2. Run the arena cases again when changing the workflow.
+3. Compare the new score against the lineage report.
+4. Keep rollback notes when replacing an installed skill.
+
+## Consent Gates
+
+- Confirm before installing or replacing a skill.
+- Confirm before destructive file edits, remote writes, or repository state changes.
+- Do not claim an evolution improved the skill unless the lineage report shows the measured delta.
+
+## Lineage
+
+Inherited mutations: {", ".join(winner_names)}
+"""
+    lineage = "# Lineage\n\n"
+    lineage += "\n".join(f"- {winner['mutation']}: score {winner['score']}" for winner in winners)
+    lineage += "\n"
+    openai_yaml = f'''interface:
+  display_name: "{str(spec["display_name"])} Ascended"
+  short_description: "Arena-selected evolved Codex skill"
+  default_prompt: "Use ${skill_name} to apply the arena-selected workflow."
+'''
+    (skill_dir / "SKILL.md").write_text(skill_md, encoding="utf-8")
+    (skill_dir / "references" / "lineage.md").write_text(lineage, encoding="utf-8")
+    (skill_dir / "agents" / "openai.yaml").write_text(openai_yaml, encoding="utf-8")
+    return skill_dir
+
+
 def make_baseline_skill(brief: str, out_dir: Path, name: str | None = None) -> Path:
     skill_name = slugify(name or infer_skill_name(brief) + "-baseline")
     skill_dir = out_dir / skill_name
@@ -327,7 +536,7 @@ def load_jsonl(path: Path) -> list[dict[str, str]]:
     return cases
 
 
-def run_benchmark(dataset: Path, workdir: Path) -> int:
+def run_benchmark(dataset: Path, workdir: Path, report_out: Path | None = None) -> int:
     cases = load_jsonl(dataset)
     if not cases:
         raise ValueError("dataset is empty")
@@ -358,6 +567,10 @@ def run_benchmark(dataset: Path, workdir: Path) -> int:
     report = root / "benchmark-report.json"
     report.write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"Report: {report}")
+    if report_out:
+        report_out.parent.mkdir(parents=True, exist_ok=True)
+        report_out.write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"Saved report: {report_out}")
     print(json.dumps({k: summary[k] for k in ("cases", "baseline_avg", "pantheon_avg")}, ensure_ascii=False))
     for row in rows:
         print(f"{row['id']}: baseline={row['baseline']['score']} pantheon={row['pantheon']['score']}")
@@ -439,6 +652,278 @@ def run_public_benchmark(name: str, limit: int, workdir: Path, report: Path | No
     return exit_code
 
 
+def report_label(path: Path, data: dict[str, object]) -> str:
+    name = path.stem
+    if "alpaca" in name:
+        return "Stanford Alpaca"
+    if "prompt" in name:
+        return "awesome-chatgpt-prompts"
+    if "builtin" in name:
+        return "Built-in skill forge"
+    dataset = str(data.get("dataset", ""))
+    if "pantheon-benchmark" in dataset:
+        return "Built-in skill forge"
+    return name.replace("-", " ").title()
+
+
+def load_report(path: Path) -> dict[str, object]:
+    data = json.loads(read_text(path))
+    for key in ("cases", "baseline_avg", "pantheon_avg"):
+        if key not in data:
+            raise ValueError(f"{path} missing {key}")
+    return data
+
+
+def generate_results_svg(report_paths: list[Path], out: Path, title: str = "Pantheon Benchmark Results") -> None:
+    reports = [(report_label(path, load_report(path)), load_report(path)) for path in report_paths]
+    if not reports:
+        raise ValueError("at least one report is required")
+
+    width = 1100
+    height = 580
+    margin_left = 96
+    chart_top = 142
+    chart_height = 290
+    group_width = 270
+    bar_width = 46
+    gap = 18
+    max_score = 10
+    total_cases = sum(int(data["cases"]) for _, data in reports)
+    baseline_avg = sum(float(data["baseline_avg"]) * int(data["cases"]) for _, data in reports) / total_cases
+    pantheon_avg = sum(float(data["pantheon_avg"]) * int(data["cases"]) for _, data in reports) / total_cases
+    lift = pantheon_avg / baseline_avg if baseline_avg else 0
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="{html.escape(title)}">',
+        "<defs>",
+        '<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">',
+        '<stop offset="0%" stop-color="#17151f"/>',
+        '<stop offset="55%" stop-color="#222034"/>',
+        '<stop offset="100%" stop-color="#30264a"/>',
+        "</linearGradient>",
+        '<filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">',
+        '<feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#000" flood-opacity="0.25"/>',
+        "</filter>",
+        "</defs>",
+        '<rect width="1100" height="580" rx="32" fill="url(#bg)"/>',
+        '<circle cx="978" cy="96" r="72" fill="#f5c86a" opacity="0.12"/>',
+        '<circle cx="138" cy="486" r="90" fill="#0969da" opacity="0.12"/>',
+        f'<text x="64" y="72" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">{html.escape(title)}</text>',
+        '<text x="64" y="106" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="16">Baseline templates vs Pantheon-generated skills across built-in and public benchmark samples.</text>',
+    ]
+
+    metric_x = 670
+    metrics = [
+        ("Cases", str(total_cases)),
+        ("Pantheon avg", f"{pantheon_avg:.2f}/10"),
+        ("Lift", f"{lift:.1f}x"),
+    ]
+    for i, (label, value) in enumerate(metrics):
+        x = metric_x + i * 128
+        parts.extend([
+            f'<rect x="{x}" y="42" width="112" height="70" rx="16" fill="#ffffff" opacity="0.08" filter="url(#shadow)"/>',
+            f'<text x="{x + 16}" y="70" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="13">{label}</text>',
+            f'<text x="{x + 16}" y="98" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">{value}</text>',
+        ])
+
+    # Axis and grid.
+    for score in range(0, 11, 2):
+        y = chart_top + chart_height - (score / max_score) * chart_height
+        parts.append(f'<line x1="{margin_left}" y1="{y:.1f}" x2="{width - 64}" y2="{y:.1f}" stroke="#ffffff" stroke-opacity="0.08"/>')
+        parts.append(f'<text x="62" y="{y + 5:.1f}" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="12">{score}</text>')
+
+    start_x = margin_left + 70
+    for index, (label, data) in enumerate(reports):
+        x0 = start_x + index * group_width
+        baseline = float(data["baseline_avg"])
+        pantheon = float(data["pantheon_avg"])
+        base_h = baseline / max_score * chart_height
+        pan_h = pantheon / max_score * chart_height
+        base_x = x0
+        pan_x = x0 + bar_width + gap
+        base_y = chart_top + chart_height - base_h
+        pan_y = chart_top + chart_height - pan_h
+        label_lines = split_label(label)
+        parts.extend([
+            f'<rect x="{base_x}" y="{base_y:.1f}" width="{bar_width}" height="{base_h:.1f}" rx="10" fill="#7d7894"/>',
+            f'<rect x="{pan_x}" y="{pan_y:.1f}" width="{bar_width}" height="{pan_h:.1f}" rx="10" fill="#f5c86a"/>',
+            f'<text x="{base_x + bar_width / 2}" y="{base_y - 10:.1f}" text-anchor="middle" fill="#d8d5e6" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">{baseline:.2f}</text>',
+            f'<text x="{pan_x + bar_width / 2}" y="{pan_y - 10:.1f}" text-anchor="middle" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">{pantheon:.2f}</text>',
+        ])
+        for line_index, line in enumerate(label_lines):
+            parts.append(f'<text x="{x0 + 55}" y="{chart_top + chart_height + 38 + line_index * 18}" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="14">{html.escape(line)}</text>')
+        parts.append(f'<text x="{x0 + 55}" y="{chart_top + chart_height + 92}" text-anchor="middle" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="12">{int(data["cases"])} cases</text>')
+
+    parts.extend([
+        '<rect x="690" y="484" width="16" height="16" rx="4" fill="#7d7894"/>',
+        '<text x="714" y="497" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="14">Naive baseline</text>',
+        '<rect x="840" y="484" width="16" height="16" rx="4" fill="#f5c86a"/>',
+        '<text x="864" y="497" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="14">Pantheon</text>',
+        '<text x="64" y="536" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="13">Scores are engineering evidence from repeatable audits, not a universal quality claim.</text>',
+        "</svg>",
+    ])
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text("\n".join(parts), encoding="utf-8")
+
+
+def split_label(label: str) -> list[str]:
+    words = label.split()
+    lines: list[str] = []
+    current = ""
+    for word in words:
+        candidate = f"{current} {word}".strip()
+        if len(candidate) > 18 and current:
+            lines.append(current)
+            current = word
+        else:
+            current = candidate
+    if current:
+        lines.append(current)
+    return lines[:3]
+
+
+def run_evolution(brief_path: Path, workdir: Path, out_report: Path | None, out_svg: Path | None, variants: int) -> int:
+    brief = read_text(brief_path)
+    workdir.mkdir(parents=True, exist_ok=True)
+    root = Path(tempfile.mkdtemp(prefix="pantheon-evolve-", dir=str(workdir)))
+    baseline_dir = root / "baseline"
+    variants_dir = root / "variants"
+    ascended_dir = root / "ascended"
+    baseline_dir.mkdir()
+    variants_dir.mkdir()
+    ascended_dir.mkdir()
+
+    baseline = make_skill_files(brief, baseline_dir, "generation-0-seed")
+    baseline_score = score_skill(baseline)
+    mutation_names = list(MUTATION_PROFILES)[: max(1, min(variants, len(MUTATION_PROFILES)))]
+    candidates = []
+    for mutation in mutation_names:
+        skill = make_mutated_skill(brief, variants_dir, mutation, "generation-1")
+        scored = score_skill(skill)
+        candidates.append({
+            "mutation": mutation,
+            "skill": str(skill),
+            "score": scored["score"],
+            "categories": scored["categories"],
+            "audit_failed": scored["audit_failed"],
+        })
+    candidates.sort(key=lambda item: (int(item["score"]), str(item["mutation"])), reverse=True)
+    winners = candidates[:2]
+    ascended = make_ascended_skill(brief, ascended_dir, winners, "generation-2-ascended")
+    ascended_score = score_skill(ascended)
+    report = {
+        "brief": str(brief_path),
+        "workdir": str(root),
+        "thesis": "Skills improve by digital evolution: fork variants, run an arena, select winners, merge traits, preserve lineage.",
+        "generation_0": {
+            "kind": "seed",
+            "skill": str(baseline),
+            "score": baseline_score["score"],
+            "categories": baseline_score["categories"],
+        },
+        "generation_1": candidates,
+        "selection": {
+            "winners": [{"mutation": winner["mutation"], "score": winner["score"], "skill": winner["skill"]} for winner in winners],
+            "rule": "Select the top two audited variants by score, then merge their strongest procedural traits.",
+        },
+        "generation_2": {
+            "kind": "ascended",
+            "skill": str(ascended),
+            "score": ascended_score["score"],
+            "categories": ascended_score["categories"],
+            "audit_failed": ascended_score["audit_failed"],
+        },
+    }
+    report_path = out_report or (root / "evolution-report.json")
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"Evolution report: {report_path}")
+    if out_svg:
+        generate_evolution_svg(report, out_svg)
+        print(f"Evolution chart: {out_svg}")
+    print(json.dumps({
+        "seed_score": baseline_score["score"],
+        "best_variant": winners[0]["mutation"],
+        "best_variant_score": winners[0]["score"],
+        "ascended_score": ascended_score["score"],
+    }, ensure_ascii=False))
+    return 0 if int(ascended_score["score"]) >= int(baseline_score["score"]) else 1
+
+
+def generate_evolution_svg(report: dict[str, object], out: Path) -> None:
+    width = 1200
+    height = 620
+    gen0 = report["generation_0"]  # type: ignore[index]
+    gen1 = report["generation_1"]  # type: ignore[index]
+    gen2 = report["generation_2"]  # type: ignore[index]
+    candidates = list(gen1)  # type: ignore[arg-type]
+    max_score = 10
+    seed_score = int(gen0["score"])  # type: ignore[index]
+    asc_score = int(gen2["score"])  # type: ignore[index]
+    best = max(candidates, key=lambda item: int(item["score"]))
+
+    def bar_h(score: int) -> float:
+        return score / max_score * 260
+
+    parts = [
+        '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-label="Pantheon skill evolution lineage">',
+        "<defs>",
+        '<linearGradient id="evoBg" x1="0" y1="0" x2="1" y2="1">',
+        '<stop offset="0%" stop-color="#111018"/>',
+        '<stop offset="50%" stop-color="#211f33"/>',
+        '<stop offset="100%" stop-color="#34264f"/>',
+        "</linearGradient>",
+        '<marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L8,3 z" fill="#f5c86a"/></marker>',
+        "</defs>",
+        '<rect width="1200" height="620" rx="34" fill="url(#evoBg)"/>',
+        '<text x="64" y="72" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="850">Skill Evolution Arena</text>',
+        '<text x="64" y="108" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="16">Fork variants, score them, select winners, merge traits, preserve lineage.</text>',
+        '<text x="64" y="154" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Generation 0</text>',
+        '<text x="428" y="154" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Generation 1: Mutations</text>',
+        '<text x="990" y="154" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Generation 2</text>',
+    ]
+    # Seed node.
+    seed_h = bar_h(seed_score)
+    parts.extend([
+        '<rect x="82" y="210" width="170" height="250" rx="24" fill="#ffffff" opacity="0.08"/>',
+        '<text x="167" y="248" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Seed Skill</text>',
+        f'<rect x="139" y="{430 - seed_h:.1f}" width="56" height="{seed_h:.1f}" rx="12" fill="#7d7894"/>',
+        f'<text x="167" y="{414 - seed_h:.1f}" text-anchor="middle" fill="#d8d5e6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">{seed_score}/10</text>',
+    ])
+    # Candidate nodes.
+    start_x = 350
+    for index, candidate in enumerate(candidates):
+        x = start_x + index * 116
+        score = int(candidate["score"])
+        h = bar_h(score)
+        color = "#f5c86a" if candidate is best else "#0969da"
+        mutation = str(candidate["mutation"]).title()
+        parts.extend([
+            f'<rect x="{x}" y="206" width="92" height="260" rx="20" fill="#ffffff" opacity="0.07"/>',
+            f'<rect x="{x + 24}" y="{430 - h:.1f}" width="44" height="{h:.1f}" rx="10" fill="{color}"/>',
+            f'<text x="{x + 46}" y="{414 - h:.1f}" text-anchor="middle" fill="{color}" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">{score}</text>',
+            f'<text x="{x + 46}" y="494" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="13">{html.escape(mutation)}</text>',
+        ])
+    # Ascended node.
+    asc_h = bar_h(asc_score)
+    parts.extend([
+        '<rect x="978" y="196" width="174" height="280" rx="28" fill="#f5c86a" opacity="0.15" stroke="#f5c86a" stroke-opacity="0.55"/>',
+        '<text x="1065" y="238" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="850">Ascended</text>',
+        f'<rect x="1037" y="{430 - asc_h:.1f}" width="56" height="{asc_h:.1f}" rx="12" fill="#f5c86a"/>',
+        f'<text x="1065" y="{414 - asc_h:.1f}" text-anchor="middle" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="850">{asc_score}/10</text>',
+    ])
+    # Arrows and metrics.
+    parts.extend([
+        '<line x1="260" y1="326" x2="330" y2="326" stroke="#f5c86a" stroke-width="4" marker-end="url(#arrow)" opacity="0.9"/>',
+        '<line x1="930" y1="326" x2="966" y2="326" stroke="#f5c86a" stroke-width="4" marker-end="url(#arrow)" opacity="0.9"/>',
+        f'<text x="64" y="556" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="15">Selection rule: top audited variants are merged into the ascended skill.</text>',
+        f'<text x="64" y="586" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="13">This chart shows bounded evolution: no silent replacement, only fork, score, select, merge, and record lineage.</text>',
+        "</svg>",
+    ])
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text("\n".join(parts), encoding="utf-8")
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Bounded evolution tools for Codex skills.")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -461,6 +946,7 @@ def main(argv: list[str] | None = None) -> int:
     bench = sub.add_parser("benchmark", help="Compare naive skill generation against Pantheon generation.")
     bench.add_argument("--dataset", type=Path, default=Path(__file__).resolve().parents[1] / "experiments" / "pantheon-benchmark.jsonl")
     bench.add_argument("--workdir", type=Path, default=Path(tempfile.gettempdir()) / "pantheon-benchmarks")
+    bench.add_argument("--report", type=Path)
 
     dl = sub.add_parser("download-dataset", help="Download a JSONL benchmark dataset for later benchmark runs.")
     dl.add_argument("--url", required=True)
@@ -471,6 +957,18 @@ def main(argv: list[str] | None = None) -> int:
     public.add_argument("--limit", type=int, default=12)
     public.add_argument("--workdir", type=Path, default=Path(tempfile.gettempdir()) / "pantheon-public")
     public.add_argument("--report", type=Path)
+
+    plot = sub.add_parser("plot-reports", help="Render benchmark reports into a GitHub-friendly SVG chart.")
+    plot.add_argument("--report", action="append", required=True, type=Path)
+    plot.add_argument("--out", required=True, type=Path)
+    plot.add_argument("--title", default="Pantheon Benchmark Results")
+
+    evolve = sub.add_parser("evolve", help="Fork skill variants, score them in an arena, merge winners, and write lineage.")
+    evolve.add_argument("--brief", required=True, type=Path)
+    evolve.add_argument("--workdir", type=Path, default=Path(tempfile.gettempdir()) / "pantheon-evolution")
+    evolve.add_argument("--report", type=Path)
+    evolve.add_argument("--svg", type=Path)
+    evolve.add_argument("--variants", type=int, default=5)
 
     args = parser.parse_args(argv)
     if args.command == "distill":
@@ -485,13 +983,19 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "experiment":
         return run_experiment(args.case, args.workdir)
     if args.command == "benchmark":
-        return run_benchmark(args.dataset, args.workdir)
+        return run_benchmark(args.dataset, args.workdir, args.report)
     if args.command == "download-dataset":
         download_dataset(args.url, args.out)
         print(args.out)
         return 0
     if args.command == "benchmark-public":
         return run_public_benchmark(args.name, args.limit, args.workdir, args.report)
+    if args.command == "plot-reports":
+        generate_results_svg(args.report, args.out, args.title)
+        print(args.out)
+        return 0
+    if args.command == "evolve":
+        return run_evolution(args.brief, args.workdir, args.report, args.svg, args.variants)
     return 2
 
 

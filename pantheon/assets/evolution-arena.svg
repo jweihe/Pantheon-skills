@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-label="Pantheon skill evolution lineage">
+<defs>
+<linearGradient id="evoBg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#111018"/>
+<stop offset="50%" stop-color="#211f33"/>
+<stop offset="100%" stop-color="#34264f"/>
+</linearGradient>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L8,3 z" fill="#f5c86a"/></marker>
+</defs>
+<rect width="1200" height="620" rx="34" fill="url(#evoBg)"/>
+<text x="64" y="72" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="850">Skill Evolution Arena</text>
+<text x="64" y="108" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="16">Fork variants, score them, select winners, merge traits, preserve lineage.</text>
+<text x="64" y="154" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Generation 0</text>
+<text x="428" y="154" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Generation 1: Mutations</text>
+<text x="990" y="154" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Generation 2</text>
+<rect x="82" y="210" width="170" height="250" rx="24" fill="#ffffff" opacity="0.08"/>
+<text x="167" y="248" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Seed Skill</text>
+<rect x="139" y="222.0" width="56" height="208.0" rx="12" fill="#7d7894"/>
+<text x="167" y="206.0" text-anchor="middle" fill="#d8d5e6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">8/10</text>
+<rect x="350" y="206" width="92" height="260" rx="20" fill="#ffffff" opacity="0.07"/>
+<rect x="374" y="196.0" width="44" height="234.0" rx="10" fill="#f5c86a"/>
+<text x="396" y="180.0" text-anchor="middle" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">9</text>
+<text x="396" y="494" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="13">Smith</text>
+<rect x="466" y="206" width="92" height="260" rx="20" fill="#ffffff" opacity="0.07"/>
+<rect x="490" y="196.0" width="44" height="234.0" rx="10" fill="#0969da"/>
+<text x="512" y="180.0" text-anchor="middle" fill="#0969da" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">9</text>
+<text x="512" y="494" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="13">Oracle</text>
+<rect x="582" y="206" width="92" height="260" rx="20" fill="#ffffff" opacity="0.07"/>
+<rect x="606" y="196.0" width="44" height="234.0" rx="10" fill="#0969da"/>
+<text x="628" y="180.0" text-anchor="middle" fill="#0969da" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">9</text>
+<text x="628" y="494" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="13">Judge</text>
+<rect x="698" y="206" width="92" height="260" rx="20" fill="#ffffff" opacity="0.07"/>
+<rect x="722" y="196.0" width="44" height="234.0" rx="10" fill="#0969da"/>
+<text x="744" y="180.0" text-anchor="middle" fill="#0969da" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">9</text>
+<text x="744" y="494" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="13">Arena</text>
+<rect x="814" y="206" width="92" height="260" rx="20" fill="#ffffff" opacity="0.07"/>
+<rect x="838" y="196.0" width="44" height="234.0" rx="10" fill="#0969da"/>
+<text x="860" y="180.0" text-anchor="middle" fill="#0969da" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">9</text>
+<text x="860" y="494" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="13">Archivist</text>
+<rect x="978" y="196" width="174" height="280" rx="28" fill="#f5c86a" opacity="0.15" stroke="#f5c86a" stroke-opacity="0.55"/>
+<text x="1065" y="238" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="850">Ascended</text>
+<rect x="1037" y="196.0" width="56" height="234.0" rx="12" fill="#f5c86a"/>
+<text x="1065" y="180.0" text-anchor="middle" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="850">9/10</text>
+<line x1="260" y1="326" x2="330" y2="326" stroke="#f5c86a" stroke-width="4" marker-end="url(#arrow)" opacity="0.9"/>
+<line x1="930" y1="326" x2="966" y2="326" stroke="#f5c86a" stroke-width="4" marker-end="url(#arrow)" opacity="0.9"/>
+<text x="64" y="556" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="15">Selection rule: top audited variants are merged into the ascended skill.</text>
+<text x="64" y="586" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="13">This chart shows bounded evolution: no silent replacement, only fork, score, select, merge, and record lineage.</text>
+</svg>

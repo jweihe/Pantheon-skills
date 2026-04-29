@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="580" viewBox="0 0 1100 580" role="img" aria-label="Pantheon Benchmark Results">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#17151f"/>
+<stop offset="55%" stop-color="#222034"/>
+<stop offset="100%" stop-color="#30264a"/>
+</linearGradient>
+<filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+<feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#000" flood-opacity="0.25"/>
+</filter>
+</defs>
+<rect width="1100" height="580" rx="32" fill="url(#bg)"/>
+<circle cx="978" cy="96" r="72" fill="#f5c86a" opacity="0.12"/>
+<circle cx="138" cy="486" r="90" fill="#0969da" opacity="0.12"/>
+<text x="64" y="72" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">Pantheon Benchmark Results</text>
+<text x="64" y="106" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="16">Baseline templates vs Pantheon-generated skills across built-in and public benchmark samples.</text>
+<rect x="670" y="42" width="112" height="70" rx="16" fill="#ffffff" opacity="0.08" filter="url(#shadow)"/>
+<text x="686" y="70" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="13">Cases</text>
+<text x="686" y="98" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">104</text>
+<rect x="798" y="42" width="112" height="70" rx="16" fill="#ffffff" opacity="0.08" filter="url(#shadow)"/>
+<text x="814" y="70" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="13">Pantheon avg</text>
+<text x="814" y="98" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">8.01/10</text>
+<rect x="926" y="42" width="112" height="70" rx="16" fill="#ffffff" opacity="0.08" filter="url(#shadow)"/>
+<text x="942" y="70" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="13">Lift</text>
+<text x="942" y="98" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">6.0x</text>
+<line x1="96" y1="432.0" x2="1036" y2="432.0" stroke="#ffffff" stroke-opacity="0.08"/>
+<text x="62" y="437.0" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="12">0</text>
+<line x1="96" y1="374.0" x2="1036" y2="374.0" stroke="#ffffff" stroke-opacity="0.08"/>
+<text x="62" y="379.0" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="12">2</text>
+<line x1="96" y1="316.0" x2="1036" y2="316.0" stroke="#ffffff" stroke-opacity="0.08"/>
+<text x="62" y="321.0" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="12">4</text>
+<line x1="96" y1="258.0" x2="1036" y2="258.0" stroke="#ffffff" stroke-opacity="0.08"/>
+<text x="62" y="263.0" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="12">6</text>
+<line x1="96" y1="200.0" x2="1036" y2="200.0" stroke="#ffffff" stroke-opacity="0.08"/>
+<text x="62" y="205.0" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="12">8</text>
+<line x1="96" y1="142.0" x2="1036" y2="142.0" stroke="#ffffff" stroke-opacity="0.08"/>
+<text x="62" y="147.0" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="12">10</text>
+<rect x="166" y="374.0" width="46" height="58.0" rx="10" fill="#7d7894"/>
+<rect x="230" y="192.8" width="46" height="239.2" rx="10" fill="#f5c86a"/>
+<text x="189.0" y="364.0" text-anchor="middle" fill="#d8d5e6" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">2.00</text>
+<text x="253.0" y="182.8" text-anchor="middle" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">8.25</text>
+<text x="221" y="470" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="14">Built-in skill</text>
+<text x="221" y="488" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="14">forge</text>
+<text x="221" y="524" text-anchor="middle" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="12">4 cases</text>
+<rect x="436" y="403.0" width="46" height="29.0" rx="10" fill="#7d7894"/>
+<rect x="500" y="200.0" width="46" height="232.0" rx="10" fill="#f5c86a"/>
+<text x="459.0" y="393.0" text-anchor="middle" fill="#d8d5e6" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">1.00</text>
+<text x="523.0" y="190.0" text-anchor="middle" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">8.00</text>
+<text x="491" y="470" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="14">Stanford Alpaca</text>
+<text x="491" y="524" text-anchor="middle" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="12">50 cases</text>
+<rect x="706" y="385.0" width="46" height="47.0" rx="10" fill="#7d7894"/>
+<rect x="770" y="200.0" width="46" height="232.0" rx="10" fill="#f5c86a"/>
+<text x="729.0" y="375.0" text-anchor="middle" fill="#d8d5e6" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">1.62</text>
+<text x="793.0" y="190.0" text-anchor="middle" fill="#f5c86a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">8.00</text>
+<text x="761" y="470" text-anchor="middle" fill="#f8f7ff" font-family="Inter, Arial, sans-serif" font-size="14">awesome-chatgpt-prompts</text>
+<text x="761" y="524" text-anchor="middle" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="12">50 cases</text>
+<rect x="690" y="484" width="16" height="16" rx="4" fill="#7d7894"/>
+<text x="714" y="497" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="14">Naive baseline</text>
+<rect x="840" y="484" width="16" height="16" rx="4" fill="#f5c86a"/>
+<text x="864" y="497" fill="#c9c6d8" font-family="Inter, Arial, sans-serif" font-size="14">Pantheon</text>
+<text x="64" y="536" fill="#9a96ad" font-family="Inter, Arial, sans-serif" font-size="13">Scores are engineering evidence from repeatable audits, not a universal quality claim.</text>
+</svg>
