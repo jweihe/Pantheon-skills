@@ -9,23 +9,27 @@
 </p>
 
 <p align="center">
-  <a href="README.zh-CN.md">中文文档</a>
-  ·
-  <a href="pantheon/SKILL.md">Skill</a>
-  ·
-  <a href="pantheon/reports/alpaca-12.json">Alpaca Report</a>
-  ·
-  <a href="pantheon/reports/prompts-12.json">Prompts Report</a>
+  <a href="README.md"><img alt="English" src="https://img.shields.io/badge/English-README-17151f?style=for-the-badge"></a>
+  <a href="README.zh-CN.md"><img alt="中文" src="https://img.shields.io/badge/%E4%B8%AD%E6%96%87-%E6%96%87%E6%A1%A3-f5c86a?style=for-the-badge"></a>
 </p>
 
 <p align="center">
-  <img alt="Codex Skill" src="https://img.shields.io/badge/Codex-Skill-17151f?style=for-the-badge">
-  <img alt="Self Evolving" src="https://img.shields.io/badge/Self--Evolving-Bounded-f5c86a?style=for-the-badge">
-  <img alt="Validation" src="https://img.shields.io/badge/Validation-10%2F10-brightgreen?style=for-the-badge">
-  <img alt="Language" src="https://img.shields.io/badge/Language-Multilingual-blue?style=for-the-badge">
+  <a href="pantheon/SKILL.md"><img alt="Codex Skill" src="https://img.shields.io/badge/Codex-Skill-17151f?style=flat-square"></a>
+  <a href="pantheon/references/evolution-protocol.md"><img alt="Self Evolving" src="https://img.shields.io/badge/Self--Evolving-Bounded-f5c86a?style=flat-square"></a>
+  <a href="pantheon/reports/alpaca-12.json"><img alt="Alpaca" src="https://img.shields.io/badge/Alpaca-8.0%2F10-2ea043?style=flat-square"></a>
+  <a href="pantheon/reports/prompts-12.json"><img alt="Prompts" src="https://img.shields.io/badge/Prompts-8.0%2F10-2ea043?style=flat-square"></a>
+  <a href="pantheon/references/language-policy.md"><img alt="Multilingual" src="https://img.shields.io/badge/Docs-Multilingual-0969da?style=flat-square"></a>
 </p>
 
 ---
+
+<table>
+  <tr>
+    <td><strong>Distill</strong><br>Turn messy work into durable procedures.</td>
+    <td><strong>Forge</strong><br>Generate valid, installable Codex skills.</td>
+    <td><strong>Judge</strong><br>Audit, benchmark, and preserve consent gates.</td>
+  </tr>
+</table>
 
 ## The Pitch
 
@@ -51,31 +55,87 @@ AI agents repeat themselves constantly:
 
 Pantheon gives those lessons a body.
 
-```text
-messy task -> distilled workflow -> generated skill -> audit -> benchmark -> installable memory
-```
+<p align="center">
+  <img alt="Flow" src="https://img.shields.io/badge/messy%20task-distill-17151f?style=for-the-badge">
+  <img alt="Flow" src="https://img.shields.io/badge/workflow-forge-f5c86a?style=for-the-badge">
+  <img alt="Flow" src="https://img.shields.io/badge/skill-audit-0969da?style=for-the-badge">
+  <img alt="Flow" src="https://img.shields.io/badge/memory-install-2ea043?style=for-the-badge">
+</p>
 
 ## What Pantheon Does
 
-| Capability | What it means |
-| --- | --- |
-| Distill | Turn messy briefs, transcripts, or repeated work into skill proposals |
-| Scaffold | Generate valid Codex skill directories |
-| Audit | Check trigger clarity, placeholder text, context size, validation, and autonomy boundaries |
-| Experiment | Generate skills in temp dirs and verify them before trust |
-| Benchmark | Compare Pantheon output against a naive baseline |
-| Public datasets | Run samples from Stanford Alpaca and awesome-chatgpt-prompts |
-| Multilingual | Produce docs and skill guidance in the user's preferred language |
+<table>
+  <tr>
+    <th>Module</th>
+    <th>Capability</th>
+    <th>What it means</th>
+  </tr>
+  <tr>
+    <td><img alt="Distill" src="https://img.shields.io/badge/01-Distill-17151f"></td>
+    <td>Workflow extraction</td>
+    <td>Turn messy briefs, transcripts, or repeated work into skill proposals.</td>
+  </tr>
+  <tr>
+    <td><img alt="Scaffold" src="https://img.shields.io/badge/02-Scaffold-f5c86a"></td>
+    <td>Skill generation</td>
+    <td>Generate valid Codex skill directories with references, scripts, and metadata.</td>
+  </tr>
+  <tr>
+    <td><img alt="Audit" src="https://img.shields.io/badge/03-Audit-0969da"></td>
+    <td>Quality gates</td>
+    <td>Check trigger clarity, placeholders, context size, validation, and autonomy boundaries.</td>
+  </tr>
+  <tr>
+    <td><img alt="Experiment" src="https://img.shields.io/badge/04-Experiment-8250df"></td>
+    <td>Proof loop</td>
+    <td>Generate skills in temp dirs and verify them before trust.</td>
+  </tr>
+  <tr>
+    <td><img alt="Benchmark" src="https://img.shields.io/badge/05-Benchmark-2ea043"></td>
+    <td>Measured comparison</td>
+    <td>Compare Pantheon output against a naive baseline on built-in and public datasets.</td>
+  </tr>
+  <tr>
+    <td><img alt="Language" src="https://img.shields.io/badge/06-Language-c6538c"></td>
+    <td>Multilingual output</td>
+    <td>Produce docs and skill guidance in the user's preferred language.</td>
+  </tr>
+</table>
 
 ## Results
 
 Pantheon includes repeatable benchmark reports, not just screenshots and vibes.
 
-| Benchmark | Cases | Baseline Avg | Pantheon Avg |
-| --- | ---: | ---: | ---: |
-| Built-in skill forge cases | 4 | 2.00 / 10 | 8.25 / 10 |
-| Stanford Alpaca sample | 12 | 1.00 / 10 | 8.00 / 10 |
-| awesome-chatgpt-prompts sample | 12 | 1.75 / 10 | 8.00 / 10 |
+<table>
+  <tr>
+    <th>Benchmark</th>
+    <th>Cases</th>
+    <th>Baseline Avg</th>
+    <th>Pantheon Avg</th>
+    <th>Lift</th>
+  </tr>
+  <tr>
+    <td>Built-in skill forge cases</td>
+    <td align="right">4</td>
+    <td align="right">2.00 / 10</td>
+    <td align="right"><strong>8.25 / 10</strong></td>
+    <td><img alt="4.1x" src="https://img.shields.io/badge/lift-4.1x-2ea043"></td>
+  </tr>
+  <tr>
+    <td>Stanford Alpaca sample</td>
+    <td align="right">12</td>
+    <td align="right">1.00 / 10</td>
+    <td align="right"><strong>8.00 / 10</strong></td>
+    <td><img alt="8.0x" src="https://img.shields.io/badge/lift-8.0x-2ea043"></td>
+  </tr>
+  <tr>
+    <td>awesome-chatgpt-prompts sample</td>
+    <td align="right">12</td>
+    <td align="right">1.75 / 10</td>
+    <td align="right"><strong>8.00 / 10</strong></td>
+    <td><img alt="4.6x" src="https://img.shields.io/badge/lift-4.6x-2ea043"></td>
+  </tr>
+</table>
 
 Validation:
 

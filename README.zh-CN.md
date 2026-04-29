@@ -5,81 +5,143 @@
 <h1 align="center">Pantheon / 万神殿</h1>
 
 <p align="center">
-  <strong>一个有边界的自进化 Codex skill 系统，把人的工作流变成可验证、可复用的 AI 记忆。</strong>
+  <strong>把一次次踩坑得到的工作流，沉淀成可验证、可复用、能继续进化的 Codex skills。</strong>
 </p>
 
 <p align="center">
-  <a href="README.md">English README</a>
-  ·
-  <a href="pantheon/SKILL.md">Skill</a>
-  ·
-  <a href="pantheon/reports/alpaca-12.json">Alpaca Report</a>
-  ·
-  <a href="pantheon/reports/prompts-12.json">Prompts Report</a>
+  <a href="README.md"><img alt="English" src="https://img.shields.io/badge/English-README-17151f?style=for-the-badge"></a>
+  <a href="README.zh-CN.md"><img alt="中文" src="https://img.shields.io/badge/%E4%B8%AD%E6%96%87-%E6%96%87%E6%A1%A3-f5c86a?style=for-the-badge"></a>
 </p>
 
 <p align="center">
-  <img alt="Codex Skill" src="https://img.shields.io/badge/Codex-Skill-17151f?style=for-the-badge">
-  <img alt="Self Evolving" src="https://img.shields.io/badge/Self--Evolving-Bounded-f5c86a?style=for-the-badge">
-  <img alt="Validation" src="https://img.shields.io/badge/Validation-10%2F10-brightgreen?style=for-the-badge">
-  <img alt="Language" src="https://img.shields.io/badge/Language-Multilingual-blue?style=for-the-badge">
+  <a href="pantheon/SKILL.md"><img alt="Codex Skill" src="https://img.shields.io/badge/Codex-Skill-17151f?style=flat-square"></a>
+  <a href="pantheon/references/evolution-protocol.md"><img alt="Self Evolving" src="https://img.shields.io/badge/Self--Evolving-Bounded-f5c86a?style=flat-square"></a>
+  <a href="pantheon/reports/alpaca-12.json"><img alt="Alpaca" src="https://img.shields.io/badge/Alpaca-8.0%2F10-2ea043?style=flat-square"></a>
+  <a href="pantheon/reports/prompts-12.json"><img alt="Prompts" src="https://img.shields.io/badge/Prompts-8.0%2F10-2ea043?style=flat-square"></a>
+  <a href="pantheon/references/language-policy.md"><img alt="Multilingual" src="https://img.shields.io/badge/Docs-Multilingual-0969da?style=flat-square"></a>
 </p>
 
 ---
 
-## 一句话
+<table>
+  <tr>
+    <td><strong>提炼</strong><br>从混乱任务里抓出可复用流程。</td>
+    <td><strong>铸造</strong><br>生成能安装、能复用的 Codex skill。</td>
+    <td><strong>审计</strong><br>用实验和边界条件防止它失控。</td>
+  </tr>
+</table>
 
-大多数 AI 工作流都会死在聊天记录里。
+## 这个项目想解决什么
 
-Pantheon 把它们变成 **skills**：一种小型、可安装、可审计、可测试、可 benchmark、可本地化、并且能在用户同意下继续演化的操作记忆。
+很多 AI 工作流，其实都死在聊天记录里。
 
-它借用了《Pantheon / 万神殿》的精神核心：记忆如果能穿过形态变化仍保留责任边界，才真正获得第二次生命。在这个项目里，工作流不是被神秘化，而是被结构化、验证化、工具化。
+今天你让 agent 修了一个很难的 bug，明天它又忘了这套检查流程。今天你总结出一套 code review 处理方法，下次又要重新解释。今天你把一个工具链跑通了，但经验没有沉淀成任何可以复用的东西。
 
-> 不是 agent swarm。
+Pantheon 做的事情很简单：把这些经验变成 **skills**。
+
+不是普通 prompt，也不是无限自治的 agent。它更像一个“工作记忆容器”：把有用流程提炼出来，生成 skill，跑审计和 benchmark，确认安全边界，然后再考虑安装和演化。
+
+> 不做偷偷自我修改。
 >
-> 不是 prompt 大杂烩。
+> 不把一堆 prompt 包装成系统。
 >
-> 不是偷偷自我修改。
+> 不用浪漫文案掩盖工程风险。
 >
-> Pantheon 是一套把有价值的工作沉淀成持久 AI 能力的仪式。
+> Pantheon 要做的是：让经验变成可以复用的能力。
 
-## 为什么值得关注
+## 为什么它可能有用
 
-AI agent 会不断重复浪费：
+Agent 最浪费时间的地方，往往不是不会写代码，而是反复忘记上下文：
 
-- 一遍遍重新发现项目约定
-- 一遍遍忘记验证步骤
-- 一遍遍重写脚手架
-- 一遍遍丢失 debug 经验
-- 产出看似有用、但完全无法测试的建议
+- 项目里已有的约定
+- 每次交付前必须跑的验证
+- 某类任务的固定处理顺序
+- 上次 debug 才发现的坑
+- 哪些操作必须先问用户确认
 
-Pantheon 给这些经验一个身体。
+Pantheon 把这些东西变成一套可以安装的 skill。
 
-```text
-混乱任务 -> 工作流提炼 -> skill 生成 -> 审计 -> benchmark -> 可安装记忆
-```
+<p align="center">
+  <img alt="Flow" src="https://img.shields.io/badge/%E6%B7%B7%E4%B9%B1%E4%BB%BB%E5%8A%A1-%E6%8F%90%E7%82%BC-17151f?style=for-the-badge">
+  <img alt="Flow" src="https://img.shields.io/badge/%E5%B7%A5%E4%BD%9C%E6%B5%81-%E9%93%B8%E9%80%A0-f5c86a?style=for-the-badge">
+  <img alt="Flow" src="https://img.shields.io/badge/skill-%E5%AE%A1%E8%AE%A1-0969da?style=for-the-badge">
+  <img alt="Flow" src="https://img.shields.io/badge/%E8%AE%B0%E5%BF%86-%E5%AE%89%E8%A3%85-2ea043?style=for-the-badge">
+</p>
 
 ## 它能做什么
 
-| 能力 | 含义 |
-| --- | --- |
-| Distill | 从混乱 brief、历史对话或重复工作中提炼 skill 提案 |
-| Scaffold | 生成合法的 Codex skill 目录 |
-| Audit | 检查触发描述、占位符、上下文体积、验证完整性和自治边界 |
-| Experiment | 在临时目录生成 skill，并在信任前验证 |
-| Benchmark | 对比 Pantheon 生成结果和朴素 baseline |
-| Public datasets | 支持 Stanford Alpaca 和 awesome-chatgpt-prompts 样本实验 |
-| Multilingual | 按用户偏好语言生成文档和 skill 指南 |
+<table>
+  <tr>
+    <th>模块</th>
+    <th>能力</th>
+    <th>说明</th>
+  </tr>
+  <tr>
+    <td><img alt="Distill" src="https://img.shields.io/badge/01-Distill-17151f"></td>
+    <td>提炼工作流</td>
+    <td>从 brief、历史对话、重复任务里提取值得沉淀的流程。</td>
+  </tr>
+  <tr>
+    <td><img alt="Scaffold" src="https://img.shields.io/badge/02-Scaffold-f5c86a"></td>
+    <td>生成 skill</td>
+    <td>生成包含 SKILL.md、references、scripts 和 metadata 的 Codex skill 目录。</td>
+  </tr>
+  <tr>
+    <td><img alt="Audit" src="https://img.shields.io/badge/03-Audit-0969da"></td>
+    <td>审计质量</td>
+    <td>检查触发描述、占位符、上下文体积、验证步骤和自治边界。</td>
+  </tr>
+  <tr>
+    <td><img alt="Experiment" src="https://img.shields.io/badge/04-Experiment-8250df"></td>
+    <td>跑实验</td>
+    <td>先在临时目录生成和验证 skill，再决定是否值得安装。</td>
+  </tr>
+  <tr>
+    <td><img alt="Benchmark" src="https://img.shields.io/badge/05-Benchmark-2ea043"></td>
+    <td>做对比</td>
+    <td>在内置案例和公开数据集上，对比 Pantheon 生成器和朴素 baseline。</td>
+  </tr>
+  <tr>
+    <td><img alt="Language" src="https://img.shields.io/badge/06-Language-c6538c"></td>
+    <td>多语言</td>
+    <td>按用户语言生成文档、说明和 skill 指南。</td>
+  </tr>
+</table>
 
 ## 实验结果
 
-Pantheon 不只给截图和感觉，它带可复现报告。
+这个项目不是只讲概念，它带了可以复跑的实验报告。
 
-| Benchmark | Cases | Baseline Avg | Pantheon Avg |
-| --- | ---: | ---: | ---: |
-| 内置 skill forge 案例 | 4 | 2.00 / 10 | 8.25 / 10 |
-| Stanford Alpaca 样本 | 12 | 1.00 / 10 | 8.00 / 10 |
-| awesome-chatgpt-prompts 样本 | 12 | 1.75 / 10 | 8.00 / 10 |
+<table>
+  <tr>
+    <th>Benchmark</th>
+    <th>Cases</th>
+    <th>Baseline Avg</th>
+    <th>Pantheon Avg</th>
+    <th>提升</th>
+  </tr>
+  <tr>
+    <td>内置 skill forge 案例</td>
+    <td align="right">4</td>
+    <td align="right">2.00 / 10</td>
+    <td align="right"><strong>8.25 / 10</strong></td>
+    <td><img alt="4.1x" src="https://img.shields.io/badge/lift-4.1x-2ea043"></td>
+  </tr>
+  <tr>
+    <td>Stanford Alpaca 样本</td>
+    <td align="right">12</td>
+    <td align="right">1.00 / 10</td>
+    <td align="right"><strong>8.00 / 10</strong></td>
+    <td><img alt="8.0x" src="https://img.shields.io/badge/lift-8.0x-2ea043"></td>
+  </tr>
+  <tr>
+    <td>awesome-chatgpt-prompts 样本</td>
+    <td align="right">12</td>
+    <td align="right">1.75 / 10</td>
+    <td align="right"><strong>8.00 / 10</strong></td>
+    <td><img alt="4.6x" src="https://img.shields.io/badge/lift-4.6x-2ea043"></td>
+  </tr>
+</table>
 
 验证结果：
 
@@ -94,7 +156,7 @@ Skill-forge experiment: 9 passed, 0 failed
 - [pantheon/reports/alpaca-12.json](pantheon/reports/alpaca-12.json)
 - [pantheon/reports/prompts-12.json](pantheon/reports/prompts-12.json)
 
-这些分数不是“通用质量证明”，而是工程证据。重点是它有闭环：生成、审计、失败、修正、benchmark。
+这些分数不是论文结论，也不是万能证明。它们的价值在于：这套系统可以被测试，可以失败，也可以继续迭代。
 
 ## 快速开始
 
@@ -152,40 +214,40 @@ pantheon/
 └── scripts/pantheon.py
 ```
 
-## 安全模型
+## 安全边界
 
-Pantheon 的核心不是“无限自治”，而是“有见证的演化”。
+Pantheon 可以进化，但不能偷偷进化。
 
 它可以：
 
-- 提出进化方案
+- 提出 skill 演化方案
 - 生成补丁
-- 运行审计和 benchmark
+- 跑审计和 benchmark
 - 产出可安装的 skill 草案
 
 它不应该：
 
-- 未确认就替换已安装 skill
-- 声称运行过并未运行的验证
-- 用神话感文案掩盖破坏性修改
-- 把 benchmark 分数包装成普遍质量证明
+- 没有确认就替换已安装 skill
+- 声称跑过其实没跑的验证
+- 用好听的文案掩盖危险操作
+- 把 benchmark 分数包装成绝对质量保证
 
 ## Roadmap
 
-- 更大的公开 benchmark 适配器
-- 对生成 skill 草案加入人类偏好评审
-- 跨语言 skill 质量检查
-- skill evolution 回归测试
-- 面向常见 agent 工作流的“神格 skill”画廊
+- 接入更大的公开 benchmark
+- 给生成出来的 skill 加人工偏好评审
+- 做跨语言 skill 质量检查
+- 给 skill evolution 加回归测试
+- 做一个常见 agent 工作流的 skill gallery
 
 ## 宣言
 
-每个团队都有隐形仪式。
+每个团队都有一些说不清但很重要的经验。
 
-那些大家记在脑子里的命令。那些发版前一定会跑的检查。那个只修过一次但永远不想再踩的 bug。那条让你真正理解系统的 code review 评论。
+某个命令一定要先跑。某个测试不能省。某类 PR 评论应该怎么处理。某个坑踩过一次就不想再踩第二次。
 
-Pantheon 想保存这些仪式，但不把它们冻住。Skills 可以进化，但必须有见证。记忆可以变成可执行能力，但必须保留责任。
+Pantheon 想把这些经验保存下来，但不是把它们冻住。它们可以继续演化，但每一步都要被看见、被验证、被确认。
 
-保留人的记忆。
+把人的经验留下来。
 
-让它成为工具。
+让它变成工具。
