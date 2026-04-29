@@ -2,6 +2,8 @@
 
 Pantheon is a Codex skill for creating and evolving other Codex skills.
 
+[中文文档](README.zh-CN.md)
+
 The idea is borrowed from the emotional center of *Pantheon*: memory becomes useful only when it survives transformation without losing accountability. In this project, a skill is treated as an uploaded working memory: a repeatable procedure extracted from hard-won work, tested before it is trusted, and never silently rewritten.
 
 ## What It Does
@@ -12,6 +14,7 @@ The idea is borrowed from the emotional center of *Pantheon*: memory becomes use
 - Runs experiments that generate a skill in a temporary directory and validate it.
 - Benchmarks Pantheon-generated skills against a naive baseline.
 - Downloads supported public datasets and transforms them into skill-creation benchmark cases.
+- Produces skill drafts and documentation in the user's preferred language when requested.
 
 ## Structure
 
@@ -25,7 +28,8 @@ pantheon/
 │   └── skill-forge-basic.md
 ├── references/
 │   ├── evolution-protocol.md
-│   └── experiment-rubric.md
+│   ├── experiment-rubric.md
+│   └── language-policy.md
 ├── reports/
 │   ├── alpaca-12.json
 │   └── prompts-12.json

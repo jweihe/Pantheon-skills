@@ -70,6 +70,7 @@ python3 scripts/pantheon.py benchmark-public --name awesome-chatgpt-prompts --li
 ```
 
 Read `references/evolution-protocol.md` before evolving an installed skill. Read `references/experiment-rubric.md` before claiming the skill has been proven useful.
+Read `references/language-policy.md` when the user asks for Chinese, bilingual, localized, or non-English skill output.
 
 ## Experiments
 
