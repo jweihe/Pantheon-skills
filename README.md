@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="pantheon/assets/pantheon-mark.svg" width="120" alt="Pantheon mark">
+  <img src="pantheon/assets/pantheon-hero.png" width="100%" alt="Pantheon self-evolving AI skills hero">
 </p>
 
 <h1 align="center">Pantheon / 万神殿</h1>
@@ -63,28 +63,9 @@ Pantheon gives those lessons a body.
   <img alt="Flow" src="https://img.shields.io/badge/winners-ascend-2ea043?style=for-the-badge">
 </p>
 
-```mermaid
-flowchart LR
-    seed["Generation 0<br/>Seed skill<br/><b>8/10</b>"]
-    fork{{"Fork"}}
-    smith["Smith mutation<br/><b>9/10</b>"]
-    oracle["Oracle mutation<br/><b>9/10</b>"]
-    judge["Judge mutation<br/><b>9/10</b>"]
-    arena["Arena mutation<br/><b>9/10</b>"]
-    archivist["Archivist mutation<br/><b>9/10</b>"]
-    select{{"Select winners"}}
-    ascend["Generation 2<br/>Ascended skill<br/><b>9/10</b>"]
-
-    seed --> fork
-    fork --> smith
-    fork --> oracle
-    fork --> judge
-    fork --> arena
-    fork --> archivist
-    smith --> select
-    oracle --> select
-    select --> ascend
-```
+<p align="center">
+  <img src="pantheon/assets/evolution-loop.png" width="100%" alt="Pantheon bounded skill evolution loop">
+</p>
 
 ## What Pantheon Does
 
@@ -130,17 +111,9 @@ flowchart LR
 
 Pantheon includes repeatable benchmark reports, not just screenshots and vibes.
 
-```mermaid
-flowchart LR
-    builtin["Built-in skill forge<br/>4 cases<br/>Baseline 2.00 -> Pantheon <b>8.25</b><br/>Lift: 4.1x"]
-    alpaca["Stanford Alpaca<br/>50 cases<br/>Baseline 1.00 -> Pantheon <b>8.00</b><br/>Lift: 8.0x"]
-    prompts["awesome-chatgpt-prompts<br/>50 cases<br/>Baseline 1.62 -> Pantheon <b>8.00</b><br/>Lift: 4.9x"]
-    total["Total arena<br/>104 cases<br/>Weighted Pantheon avg <b>8.01/10</b>"]
-
-    builtin --> total
-    alpaca --> total
-    prompts --> total
-```
+<p align="center">
+  <img src="pantheon/assets/benchmark-evidence.png" width="100%" alt="Pantheon benchmark evidence">
+</p>
 
 <table>
   <tr>
@@ -233,6 +206,9 @@ pantheon/
 ├── SKILL.md
 ├── agents/openai.yaml
 ├── assets/
+│   ├── benchmark-evidence.png
+│   ├── evolution-loop.png
+│   ├── pantheon-hero.png
 │   └── pantheon-mark.svg
 ├── experiments/
 │   ├── pantheon-benchmark.jsonl

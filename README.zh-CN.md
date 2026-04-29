@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="pantheon/assets/pantheon-mark.svg" width="120" alt="Pantheon mark">
+  <img src="pantheon/assets/pantheon-hero.png" width="100%" alt="Pantheon 自进化 AI skills 头图">
 </p>
 
 <h1 align="center">Pantheon / 万神殿</h1>
@@ -48,28 +48,9 @@
 
 然后它们进入竞技场，被同一套规则评分。胜出的变体会被选择、融合，生成下一代 ascended skill，并留下 lineage report。
 
-```mermaid
-flowchart LR
-    seed["第 0 代<br/>种子 skill<br/><b>8/10</b>"]
-    fork{{"分叉"}}
-    smith["Smith 变体<br/><b>9/10</b>"]
-    oracle["Oracle 变体<br/><b>9/10</b>"]
-    judge["Judge 变体<br/><b>9/10</b>"]
-    arena["Arena 变体<br/><b>9/10</b>"]
-    archivist["Archivist 变体<br/><b>9/10</b>"]
-    select{{"选择胜者"}}
-    ascend["第 2 代<br/>Ascended skill<br/><b>9/10</b>"]
-
-    seed --> fork
-    fork --> smith
-    fork --> oracle
-    fork --> judge
-    fork --> arena
-    fork --> archivist
-    smith --> select
-    oracle --> select
-    select --> ascend
-```
+<p align="center">
+  <img src="pantheon/assets/evolution-loop.png" width="100%" alt="Pantheon 有边界的 skill 自进化流程">
+</p>
 
 ## 为什么这比“写个 prompt”更重要
 
@@ -125,7 +106,7 @@ Pantheon 的思路是工程化的：
   <tr>
     <td><img alt="Lineage" src="https://img.shields.io/badge/06-Lineage-c6538c"></td>
     <td>谱系</td>
-    <td>输出 JSON 报告和 SVG 图，记录每一代为什么变强。</td>
+    <td>输出 JSON 报告和可视化证据，记录每一代为什么变强。</td>
   </tr>
 </table>
 
@@ -133,17 +114,9 @@ Pantheon 的思路是工程化的：
 
 现在不只是 12 条样本，而是跑了 104 个 case：
 
-```mermaid
-flowchart LR
-    builtin["内置 skill forge<br/>4 cases<br/>Baseline 2.00 -> Pantheon <b>8.25</b><br/>提升 4.1x"]
-    alpaca["Stanford Alpaca<br/>50 cases<br/>Baseline 1.00 -> Pantheon <b>8.00</b><br/>提升 8.0x"]
-    prompts["awesome-chatgpt-prompts<br/>50 cases<br/>Baseline 1.62 -> Pantheon <b>8.00</b><br/>提升 4.9x"]
-    total["总竞技场<br/>104 cases<br/>Pantheon 加权均分 <b>8.01/10</b>"]
-
-    builtin --> total
-    alpaca --> total
-    prompts --> total
-```
+<p align="center">
+  <img src="pantheon/assets/benchmark-evidence.png" width="100%" alt="Pantheon benchmark 实验证据">
+</p>
 
 <table>
   <tr>
