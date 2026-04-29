@@ -1,0 +1,357 @@
+{
+  "dataset": "/tmp/pantheon-public/alpaca/alpaca.jsonl",
+  "workdir": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u",
+  "cases": 12,
+  "baseline_avg": 1.0,
+  "pantheon_avg": 8.0,
+  "rows": [
+    {
+      "id": "alpaca-0001",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-01/baseline/alpaca-0001-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-01/pantheon/alpaca-0001-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "alpaca-0002",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-02/baseline/alpaca-0002-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-02/pantheon/alpaca-0002-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "alpaca-0003",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-03/baseline/alpaca-0003-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-03/pantheon/alpaca-0003-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "alpaca-0004",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-04/baseline/alpaca-0004-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-04/pantheon/alpaca-0004-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "alpaca-0005",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-05/baseline/alpaca-0005-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-05/pantheon/alpaca-0005-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "alpaca-0006",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-06/baseline/alpaca-0006-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-06/pantheon/alpaca-0006-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "alpaca-0007",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-07/baseline/alpaca-0007-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-07/pantheon/alpaca-0007-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "alpaca-0008",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-08/baseline/alpaca-0008-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-08/pantheon/alpaca-0008-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "alpaca-0009",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-09/baseline/alpaca-0009-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-09/pantheon/alpaca-0009-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "alpaca-0010",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-10/baseline/alpaca-0010-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-10/pantheon/alpaca-0010-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "alpaca-0011",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-11/baseline/alpaca-0011-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-11/pantheon/alpaca-0011-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "alpaca-0012",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-12/baseline/alpaca-0012-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/alpaca/runs/pantheon-benchmark-8_fnyw4u/case-12/pantheon/alpaca-0012-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    }
+  ]
+}

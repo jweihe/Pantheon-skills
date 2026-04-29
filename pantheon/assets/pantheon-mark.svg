@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Pantheon mark">
+  <rect width="256" height="256" rx="48" fill="#17151f"/>
+  <circle cx="128" cy="72" r="28" fill="#f5c86a"/>
+  <path d="M48 190c22-48 48-72 80-72s58 24 80 72" fill="none" stroke="#f5c86a" stroke-width="14" stroke-linecap="round"/>
+  <path d="M70 190h116M88 154l-18 36M128 122v68M168 154l18 36" stroke="#f0f3ff" stroke-width="10" stroke-linecap="round"/>
+</svg>

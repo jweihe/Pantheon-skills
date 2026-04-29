@@ -1,0 +1,7 @@
+interface:
+  display_name: "万神殿 Pantheon"
+  short_description: "Evolve useful Codex skills with reviewable rituals"
+  icon_small: "./assets/pantheon-mark.svg"
+  icon_large: "./assets/pantheon-mark.svg"
+  brand_color: "#F5C86A"
+  default_prompt: "Use $pantheon to turn a repeated workflow into a validated Codex skill."

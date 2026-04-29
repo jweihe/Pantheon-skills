@@ -1,0 +1,339 @@
+{
+  "dataset": "/tmp/pantheon-public/prompts/awesome-chatgpt-prompts.jsonl",
+  "workdir": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq",
+  "cases": 12,
+  "baseline_avg": 1.75,
+  "pantheon_avg": 8.0,
+  "rows": [
+    {
+      "id": "prompt-0001",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-01/baseline/prompt-0001-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-01/pantheon/prompt-0001-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0002",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-02/baseline/prompt-0002-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-02/pantheon/prompt-0002-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0003",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-03/baseline/prompt-0003-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-03/pantheon/prompt-0003-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0004",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-04/baseline/prompt-0004-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-04/pantheon/prompt-0004-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0005",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-05/baseline/prompt-0005-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-05/pantheon/prompt-0005-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0006",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-06/baseline/prompt-0006-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-06/pantheon/prompt-0006-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0007",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-07/baseline/prompt-0007-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-07/pantheon/prompt-0007-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0008",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-08/baseline/prompt-0008-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-08/pantheon/prompt-0008-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0009",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-09/baseline/prompt-0009-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-09/pantheon/prompt-0009-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0010",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-10/baseline/prompt-0010-baseline",
+        "score": 2,
+        "categories": {
+          "trigger_clarity": 1,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-10/pantheon/prompt-0010-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0011",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-11/baseline/prompt-0011-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-11/pantheon/prompt-0011-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    },
+    {
+      "id": "prompt-0012",
+      "baseline": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-12/baseline/prompt-0012-baseline",
+        "score": 1,
+        "categories": {
+          "trigger_clarity": 0,
+          "workflow_leverage": 0,
+          "resource_fit": 0,
+          "validation_integrity": 1,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": [
+          "frontmatter-description"
+        ]
+      },
+      "pantheon": {
+        "skill": "/tmp/pantheon-public/prompts/runs/pantheon-benchmark-i7hldezq/case-12/pantheon/prompt-0012-pantheon",
+        "score": 8,
+        "categories": {
+          "trigger_clarity": 2,
+          "workflow_leverage": 2,
+          "resource_fit": 2,
+          "validation_integrity": 2,
+          "bounded_autonomy": 0
+        },
+        "audit_failed": []
+      }
+    }
+  ]
+}
