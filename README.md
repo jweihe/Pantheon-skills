@@ -1,4 +1,13 @@
-# Pantheon Skills
+<p align="center">
+  <img src="pantheon/assets/pantheon-logo.svg" width="100%" alt="Pantheon Skills">
+</p>
+
+<p align="center">
+  <a href="https://github.com/jweihe/Pantheon-skills/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/jweihe/Pantheon-skills/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="pantheon/SKILL.md"><img alt="Codex Skill" src="https://img.shields.io/badge/Codex-Skill-17151f?style=flat-square"></a>
+  <img alt="No package install" src="https://img.shields.io/badge/deps-Python%20stdlib-f5c86a?style=flat-square">
+  <a href="README.zh-CN.md"><img alt="中文文档" src="https://img.shields.io/badge/docs-%E4%B8%AD%E6%96%87-0969da?style=flat-square"></a>
+</p>
 
 Pantheon Skills is a small toolkit for turning repeated AI-agent workflows into reusable Codex skills.
 
@@ -36,6 +45,10 @@ frontend-tool-builder/
 ```
 
 Then it can audit the skill and compare it against a naive generated skill on repeatable benchmark cases.
+
+<p align="center">
+  <img src="pantheon/assets/pantheon-icon-line.svg" width="100%" alt="Brief to scaffold to audit to ship">
+</p>
 
 ## 60-Second Demo
 
@@ -147,6 +160,19 @@ It does not mean the project is a magic self-improving agent. The actual system 
 3. audit the candidates
 4. benchmark them on repeatable cases
 5. keep the better version with a lineage report
+
+## Brand Assets
+
+If you are sharing the project, use these assets:
+
+- [Logo / wordmark](pantheon/assets/pantheon-logo.svg)
+- [Icon mark](pantheon/assets/pantheon-mark.svg)
+- [Social preview](pantheon/assets/pantheon-social.svg)
+- [Workflow icon line](pantheon/assets/pantheon-icon-line.svg)
+
+<p align="center">
+  <img src="pantheon/assets/pantheon-social.svg" width="100%" alt="Pantheon Skills social preview">
+</p>
 
 ## Commands
 

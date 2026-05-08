@@ -1,4 +1,13 @@
-# Pantheon Skills / 万神殿技能
+<p align="center">
+  <img src="pantheon/assets/pantheon-logo.svg" width="100%" alt="Pantheon Skills">
+</p>
+
+<p align="center">
+  <a href="https://github.com/jweihe/Pantheon-skills/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/jweihe/Pantheon-skills/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="pantheon/SKILL.md"><img alt="Codex Skill" src="https://img.shields.io/badge/Codex-Skill-17151f?style=flat-square"></a>
+  <img alt="No package install" src="https://img.shields.io/badge/deps-Python%20stdlib-f5c86a?style=flat-square">
+  <a href="README.md"><img alt="English README" src="https://img.shields.io/badge/docs-English-0969da?style=flat-square"></a>
+</p>
 
 Pantheon Skills 是一个小工具：把你反复告诉 AI Agent 的工作流，沉淀成可复用的 Codex skill。
 
@@ -32,6 +41,10 @@ frontend-tool-builder/
 ```
 
 然后它会 audit 这个 skill，也可以在固定 benchmark case 上和普通生成方式做对比。
+
+<p align="center">
+  <img src="pantheon/assets/pantheon-icon-line.svg" width="100%" alt="Brief to scaffold to audit to ship">
+</p>
 
 ## 一句话解释
 
@@ -156,6 +169,19 @@ Use $pantheon to turn this repeated workflow into a validated Codex skill.
 3. 用 audit 检查结构和安全边界
 4. 用 benchmark 在固定案例上评分
 5. 保存更好的版本和 lineage report
+
+## 品牌资产
+
+如果要分享项目，可以直接用这些素材：
+
+- [Logo / wordmark](pantheon/assets/pantheon-logo.svg)
+- [Icon mark](pantheon/assets/pantheon-mark.svg)
+- [Social preview](pantheon/assets/pantheon-social.svg)
+- [Workflow icon line](pantheon/assets/pantheon-icon-line.svg)
+
+<p align="center">
+  <img src="pantheon/assets/pantheon-social.svg" width="100%" alt="Pantheon Skills social preview">
+</p>
 
 ## Makefile 快捷命令
 
