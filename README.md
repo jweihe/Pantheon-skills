@@ -1,291 +1,220 @@
-<p align="center">
-  <img src="pantheon/assets/pantheon-hero.png" width="100%" alt="Pantheon self-evolving AI skills hero">
-</p>
+# Pantheon Skills
 
-<h1 align="center">Pantheon / 万神殿</h1>
+Pantheon Skills is a small toolkit for turning repeated AI-agent workflows into reusable Codex skills.
 
-<p align="center">
-  <strong>An evolution chamber for Codex skills: fork, mutate, score, select, merge, and preserve lineage.</strong>
-</p>
+If you keep telling an agent the same rules, checks, scripts, or project habits, Pantheon helps you turn that repeated knowledge into a skill, then audit and benchmark it before you install it.
 
-<p align="center">
-  <a href="README.md"><img alt="English" src="https://img.shields.io/badge/English-README-17151f?style=for-the-badge"></a>
-  <a href="README.zh-CN.md"><img alt="中文" src="https://img.shields.io/badge/%E4%B8%AD%E6%96%87-%E6%96%87%E6%A1%A3-f5c86a?style=for-the-badge"></a>
-</p>
+## What Problem Does It Solve?
 
-<p align="center">
-  <a href="pantheon/SKILL.md"><img alt="Codex Skill" src="https://img.shields.io/badge/Codex-Skill-17151f?style=flat-square"></a>
-  <a href="pantheon/references/evolution-protocol.md"><img alt="Self Evolving" src="https://img.shields.io/badge/Self--Evolving-Bounded-f5c86a?style=flat-square"></a>
-  <a href="pantheon/reports/alpaca-50.json"><img alt="Alpaca" src="https://img.shields.io/badge/Alpaca%2050-8.0%2F10-2ea043?style=flat-square"></a>
-  <a href="pantheon/reports/prompts-50.json"><img alt="Prompts" src="https://img.shields.io/badge/Prompts%2050-8.0%2F10-2ea043?style=flat-square"></a>
-  <a href="pantheon/reports/evolution-demo.json"><img alt="Evolution" src="https://img.shields.io/badge/Evolution-Seed%208%20to%209-f5c86a?style=flat-square"></a>
-  <a href="pantheon/references/language-policy.md"><img alt="Multilingual" src="https://img.shields.io/badge/Docs-Multilingual-0969da?style=flat-square"></a>
-</p>
+AI agents forget useful workflow knowledge:
 
----
+- the commands you always run before shipping
+- the review checklist you repeat every time
+- the project conventions that are not obvious from code
+- the debugging steps you learned the hard way
+- the safety boundaries you do not want the agent to cross
 
-<table>
-  <tr>
-    <td><strong>Fork</strong><br>Split one workflow into multiple skill variants.</td>
-    <td><strong>Mutate</strong><br>Apply different cognitive strategies to each variant.</td>
-    <td><strong>Ascend</strong><br>Select winners, merge traits, and preserve lineage.</td>
-  </tr>
-</table>
+Pantheon turns that knowledge into a `SKILL.md` plus references, scripts, and validation reports.
 
-## The Pitch
+## Concrete Example
 
-Most AI workflows die in chat history. Most "self-improving" agents are just prompts with ambition.
+Input brief:
 
-Pantheon treats skills like digital organisms. A workflow can be copied, mutated into competing variants, scored in an arena, selected, merged, and recorded as lineage.
+```text
+Every time we build a small frontend tool, we forget the same checks:
+responsive layout, no overlapping text, realistic sample data, and a final screenshot review.
+Turn this into a reusable Codex skill.
+```
 
-That is the real connection to *Pantheon*: uploaded intelligence does not surpass humans by remembering more. It surpasses humans by escaping human limits: speed, copying, parallel trial, merge, simulation, and durable memory.
+Pantheon can turn that into:
 
-> Not a skill library. Not a prompt dump. Not silent self-modification.
->
-> Pantheon is an evolution chamber for AI skills.
+```text
+frontend-tool-builder/
+├── SKILL.md
+├── agents/openai.yaml
+└── references/checklist.md
+```
 
-## Why It Matters
+Then it can audit the skill and compare it against a naive generated skill on repeatable benchmark cases.
 
-AI agents repeat themselves constantly:
+## 60-Second Demo
 
-- rediscovering the same project conventions
-- forgetting the same validation steps
-- rewriting the same boilerplate
-- losing hard-won debugging knowledge
-- producing "helpful" instructions that cannot be tested
+Clone the repo and run the built-in checks:
 
-Pantheon gives those lessons a body.
+```bash
+git clone https://github.com/jweihe/Pantheon-skills.git
+cd Pantheon-skills
+make audit
+make demo
+```
 
-<p align="center">
-  <img alt="Flow" src="https://img.shields.io/badge/seed-fork-17151f?style=for-the-badge">
-  <img alt="Flow" src="https://img.shields.io/badge/variants-mutate-f5c86a?style=for-the-badge">
-  <img alt="Flow" src="https://img.shields.io/badge/arena-score-0969da?style=for-the-badge">
-  <img alt="Flow" src="https://img.shields.io/badge/winners-ascend-2ea043?style=for-the-badge">
-</p>
+No package install is required. The core tool uses the Python standard library.
 
-<p align="center">
-  <img src="pantheon/assets/evolution-loop.png" width="100%" alt="Pantheon bounded skill evolution loop">
-</p>
-
-## What Pantheon Does
-
-<table>
-  <tr>
-    <th>Module</th>
-    <th>Capability</th>
-    <th>What it means</th>
-  </tr>
-  <tr>
-    <td><img alt="Fork" src="https://img.shields.io/badge/01-Fork-17151f"></td>
-    <td>Variant forking</td>
-    <td>Split one seed workflow into multiple candidate skill variants.</td>
-  </tr>
-  <tr>
-    <td><img alt="Mutate" src="https://img.shields.io/badge/02-Mutate-f5c86a"></td>
-    <td>Mutation profiles</td>
-    <td>Apply Archivist, Smith, Oracle, Judge, and Arena strategies.</td>
-  </tr>
-  <tr>
-    <td><img alt="Score" src="https://img.shields.io/badge/03-Score-0969da"></td>
-    <td>Arena scoring</td>
-    <td>Measure trigger clarity, workflow leverage, resources, validation, and autonomy boundaries.</td>
-  </tr>
-  <tr>
-    <td><img alt="Select" src="https://img.shields.io/badge/04-Select-8250df"></td>
-    <td>Selection</td>
-    <td>Keep the strongest audited variants and reject weak mutations.</td>
-  </tr>
-  <tr>
-    <td><img alt="Merge" src="https://img.shields.io/badge/05-Merge-2ea043"></td>
-    <td>Ascension</td>
-    <td>Merge winning traits into an ascended skill and write a lineage report.</td>
-  </tr>
-  <tr>
-    <td><img alt="Lineage" src="https://img.shields.io/badge/06-Lineage-c6538c"></td>
-    <td>Memory preservation</td>
-    <td>Save reports, charts, and rollback context so the next evolution starts from evidence.</td>
-  </tr>
-</table>
-
-## Results
-
-Pantheon includes repeatable benchmark reports, not just screenshots and vibes.
-
-<p align="center">
-  <img src="pantheon/assets/benchmark-evidence.png" width="100%" alt="Pantheon benchmark evidence">
-</p>
-
-<table>
-  <tr>
-    <th>Benchmark</th>
-    <th>Cases</th>
-    <th>Baseline Avg</th>
-    <th>Pantheon Avg</th>
-    <th>Lift</th>
-  </tr>
-  <tr>
-    <td>Built-in skill forge cases</td>
-    <td align="right">4</td>
-    <td align="right">2.00 / 10</td>
-    <td align="right"><strong>8.25 / 10</strong></td>
-    <td><img alt="4.1x" src="https://img.shields.io/badge/lift-4.1x-2ea043"></td>
-  </tr>
-  <tr>
-    <td>Stanford Alpaca sample</td>
-    <td align="right">50</td>
-    <td align="right">1.00 / 10</td>
-    <td align="right"><strong>8.00 / 10</strong></td>
-    <td><img alt="8.0x" src="https://img.shields.io/badge/lift-8.0x-2ea043"></td>
-  </tr>
-  <tr>
-    <td>awesome-chatgpt-prompts sample</td>
-    <td align="right">50</td>
-    <td align="right">1.62 / 10</td>
-    <td align="right"><strong>8.00 / 10</strong></td>
-    <td><img alt="4.6x" src="https://img.shields.io/badge/lift-4.6x-2ea043"></td>
-  </tr>
-</table>
-
-Validation:
+Expected result:
 
 ```text
 Pantheon audit: 10 passed, 0 failed
-Codex quick_validate: Skill is valid
 Skill-forge experiment: 9 passed, 0 failed
 ```
 
-Reports:
+## What Is A Skill?
 
-- [pantheon/reports/alpaca-50.json](pantheon/reports/alpaca-50.json)
-- [pantheon/reports/prompts-50.json](pantheon/reports/prompts-50.json)
-- [pantheon/reports/evolution-demo.json](pantheon/reports/evolution-demo.json)
+A Codex skill is a folder with a `SKILL.md` file. It tells Codex when to use a workflow and how to execute it.
 
-These scores are engineering evidence, not a universal quality claim. The point is that the system has a proof loop: generate, audit, fail, revise, benchmark.
+Minimal shape:
 
-## Quick Start
+```text
+my-skill/
+├── SKILL.md
+├── agents/openai.yaml
+├── references/
+└── scripts/
+```
+
+Pantheon helps create, audit, score, and evolve that folder.
+
+## Common Workflows
+
+### 1. Audit the Pantheon skill itself
 
 ```bash
 python3 pantheon/scripts/pantheon.py audit pantheon
-python3 pantheon/scripts/pantheon.py distill --input pantheon/experiments/skill-forge-basic.md
-python3 pantheon/scripts/pantheon.py evolve --brief pantheon/experiments/skill-forge-basic.md --report pantheon/reports/evolution-demo.json
-python3 pantheon/scripts/pantheon.py experiment --case pantheon/experiments/skill-forge-basic.md --workdir /tmp/pantheon-exp
-python3 pantheon/scripts/pantheon.py benchmark --dataset pantheon/experiments/pantheon-benchmark.jsonl --workdir /tmp/pantheon-bench
 ```
 
-Run public dataset samples:
+### 2. Turn a brief into a draft skill
 
 ```bash
-python3 pantheon/scripts/pantheon.py benchmark-public --name alpaca --limit 50 --report pantheon/reports/alpaca-50.json
-python3 pantheon/scripts/pantheon.py benchmark-public --name awesome-chatgpt-prompts --limit 50 --report pantheon/reports/prompts-50.json
+python3 pantheon/scripts/pantheon.py scaffold \
+  --brief pantheon/experiments/skill-forge-basic.md \
+  --out /tmp/pantheon-skills
 ```
 
-## Use It As A Codex Skill
-
-Install locally by symlinking the skill directory:
+### 3. Run a full demo experiment
 
 ```bash
+python3 pantheon/scripts/pantheon.py experiment \
+  --case pantheon/experiments/skill-forge-basic.md \
+  --workdir /tmp/pantheon-exp
+```
+
+### 4. Compare a naive skill against a Pantheon-generated skill
+
+```bash
+python3 pantheon/scripts/pantheon.py benchmark \
+  --dataset pantheon/experiments/pantheon-benchmark.jsonl \
+  --workdir /tmp/pantheon-bench
+```
+
+### 5. Run the evolution loop
+
+```bash
+python3 pantheon/scripts/pantheon.py evolve \
+  --brief pantheon/experiments/skill-forge-basic.md \
+  --workdir /tmp/pantheon-evolve \
+  --report /tmp/pantheon-evolve/report.json \
+  --svg /tmp/pantheon-evolve/lineage.svg
+```
+
+## Install As A Codex Skill
+
+Symlink the `pantheon/` folder into your Codex skills directory:
+
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 ln -s "$PWD/pantheon" "${CODEX_HOME:-$HOME/.codex}/skills/pantheon"
 ```
 
-Then invoke it:
+Then ask Codex:
 
 ```text
 Use $pantheon to turn this repeated workflow into a validated Codex skill.
 ```
 
-Chinese works too:
+Chinese also works:
 
 ```text
 使用 $pantheon，把这个重复工作流沉淀成一个经过验证的 Codex skill。
 ```
 
-## Project Layout
+## Why Is It Called Pantheon?
+
+The name is just a metaphor: a place to preserve useful agent workflows.
+
+It does not mean the project is a magic self-improving agent. The actual system is deliberately boring:
+
+1. read a workflow brief
+2. generate skill candidates
+3. audit the candidates
+4. benchmark them on repeatable cases
+5. keep the better version with a lineage report
+
+## Commands
+
+```bash
+make audit       # audit pantheon/SKILL.md
+make demo        # run scaffold-and-audit experiment
+make benchmark   # run the local benchmark
+make evolve      # run the evolution loop into /tmp
+```
+
+Direct CLI:
+
+```bash
+python3 pantheon/scripts/pantheon.py --help
+```
+
+Available subcommands:
+
+- `distill`: summarize a workflow brief into a skill proposal
+- `scaffold`: create a draft skill folder
+- `audit`: validate a skill folder
+- `experiment`: run a scaffold-and-audit demo
+- `benchmark`: compare baseline vs Pantheon-generated skills
+- `benchmark-public`: run supported public dataset samples
+- `plot-reports`: render benchmark reports into SVG charts
+- `evolve`: fork variants, score them, merge winners, and save lineage
+
+## Current Evidence
+
+Included reports:
+
+- Built-in benchmark: 4 cases, Pantheon average 8.25 / 10
+- Stanford Alpaca sample: 50 cases, Pantheon average 8.00 / 10
+- awesome-chatgpt-prompts sample: 50 cases, Pantheon average 8.00 / 10
+
+These are engineering smoke tests, not a claim that the system solves skill creation universally.
+
+## Repository Layout
 
 ```text
 pantheon/
 ├── SKILL.md
 ├── agents/openai.yaml
-├── assets/
-│   ├── benchmark-evidence.png
-│   ├── evolution-loop.png
-│   ├── pantheon-hero.png
-│   └── pantheon-mark.svg
 ├── experiments/
-│   ├── pantheon-benchmark.jsonl
-│   └── skill-forge-basic.md
 ├── references/
-│   ├── evolution-protocol.md
-│   ├── experiment-rubric.md
-│   └── language-policy.md
 ├── reports/
-│   ├── alpaca-50.json
-│   ├── builtin-4.json
-│   ├── evolution-demo.json
-│   └── prompts-50.json
 └── scripts/pantheon.py
 ```
 
-## The Safety Model
+## Safety Model
 
-Pantheon is designed to evolve skills without pretending that autonomy is free.
+Pantheon can generate and test skill drafts. It should not silently replace installed skills.
 
-It may:
+Before installing or replacing a skill, review the diff and run:
 
-- propose evolutions
-- generate patches
-- run audits and benchmarks
-- produce installable skill drafts
+```bash
+python3 pantheon/scripts/pantheon.py audit path/to/skill
+```
 
-It must not:
-
-- replace installed skills without confirmation
-- claim validation that did not run
-- hide destructive changes behind mythic language
-- treat benchmark scores as proof of universal quality
-
-## Roadmap
-
-- Larger public benchmark adapters
-- Human preference review for generated skill drafts
-- Cross-language skill quality checks
-- Regression tests for skill evolution
-- A gallery of generated "deity" skills for common agent workflows
-
-## The Manifesto
-
-Every team has invisible rituals.
-
-The commands people remember. The checks they run before shipping. The weird bug they only fixed once. The review comment that taught them how the system really works.
-
-Pantheon is a place to preserve those rituals without freezing them. Skills can evolve, but only under witness. Memory can become executable, but it must remain accountable.
-
-Keep the human memory.
-
-Make it operational.
-
-## How To Cite
-
-If Pantheon helps your work, cite the repository directly:
+## Citation
 
 ```bibtex
 @software{pantheon_skills_2026,
-  title = {Pantheon-skills: A self-evolving Pantheon for AI skills},
+  title = {Pantheon-skills: A toolkit for creating and validating Codex skills},
   author = {He, Jwei},
   year = {2026},
-  url = {https://github.com/jweihe/Pantheon-skills},
-  note = {An evolution chamber for Codex skills: fork, mutate, benchmark, and ascend executable memory}
+  url = {https://github.com/jweihe/Pantheon-skills}
 }
 ```
 
-This repository also includes [CITATION.cff](CITATION.cff) for citation tools.
-
-## References
-
-- [Pantheon TV series](https://en.wikipedia.org/wiki/Pantheon_(TV_series))
-- [Stanford Alpaca dataset](https://github.com/tatsu-lab/stanford_alpaca)
-- [awesome-chatgpt-prompts dataset](https://github.com/f/awesome-chatgpt-prompts)
-- [Codex skill definition](pantheon/SKILL.md)
-- [Evolution protocol](pantheon/references/evolution-protocol.md)
-- [Experiment rubric](pantheon/references/experiment-rubric.md)
-- [Language policy](pantheon/references/language-policy.md)
-- [Evolution report](pantheon/reports/evolution-demo.json)
+See [CITATION.cff](CITATION.cff) for citation tools.
