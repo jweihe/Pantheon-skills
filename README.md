@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="pantheon/assets/pantheon-logo.svg" width="100%" alt="Pantheon Skills">
+  <img src="pantheon/assets/pantheon-hero-gpt.png" width="100%" alt="Pantheon Skills">
 </p>
 
 <p align="center">
@@ -9,9 +9,11 @@
   <a href="README.zh-CN.md"><img alt="中文文档" src="https://img.shields.io/badge/docs-%E4%B8%AD%E6%96%87-0969da?style=flat-square"></a>
 </p>
 
-Pantheon Skills is a small toolkit for turning repeated AI-agent workflows into reusable Codex skills.
+Pantheon Skills is a framework for evolving repeated AI-agent workflows into reusable Codex skills.
 
 If you keep telling an agent the same rules, checks, scripts, or project habits, Pantheon helps you turn that repeated knowledge into a skill, then audit and benchmark it before you install it.
+
+It is not a prompt collection. It is a skill evolution loop: seed, fork, mutate, score, select, merge, and preserve lineage.
 
 ## What Problem Does It Solve?
 
@@ -46,9 +48,17 @@ frontend-tool-builder/
 
 Then it can audit the skill and compare it against a naive generated skill on repeatable benchmark cases.
 
-<p align="center">
-  <img src="pantheon/assets/pantheon-icon-line.svg" width="100%" alt="Brief to scaffold to audit to ship">
-</p>
+## Skill Evolution
+
+Pantheon starts from a seed workflow and creates several competing skill variants. Each variant emphasizes a different strategy:
+
+- **Archivist**: preserve durable project memory
+- **Smith**: turn repeat work into scripts, references, and structure
+- **Oracle**: improve trigger clarity and language fit
+- **Judge**: harden validation and safety boundaries
+- **Arena**: optimize for repeatable benchmark performance
+
+The variants are scored in the same arena. The strongest ones are selected and merged into an ascended skill. The process leaves a lineage report, so the next iteration starts from evidence instead of vibes.
 
 ## 60-Second Demo
 
@@ -69,22 +79,6 @@ Expected result:
 Pantheon audit: 10 passed, 0 failed
 Skill-forge experiment: 9 passed, 0 failed
 ```
-
-## What Is A Skill?
-
-A Codex skill is a folder with a `SKILL.md` file. It tells Codex when to use a workflow and how to execute it.
-
-Minimal shape:
-
-```text
-my-skill/
-├── SKILL.md
-├── agents/openai.yaml
-├── references/
-└── scripts/
-```
-
-Pantheon helps create, audit, score, and evolve that folder.
 
 ## Common Workflows
 
@@ -151,28 +145,24 @@ Chinese also works:
 
 ## Why Is It Called Pantheon?
 
-The name is just a metaphor: a place to preserve useful agent workflows.
+The name is inspired by the TV series *Pantheon*.
 
-It does not mean the project is a magic self-improving agent. The actual system is deliberately boring:
+The interesting idea is not that digital intelligence remembers more. It is that digital intelligence can copy itself, fork into variants, run parallel trials, merge what worked, and keep durable memory across generations.
 
-1. read a workflow brief
-2. generate skill candidates
-3. audit the candidates
-4. benchmark them on repeatable cases
-5. keep the better version with a lineage report
+Pantheon applies that idea to AI-agent skills:
 
-## Brand Assets
+- a workflow becomes a seed skill
+- the seed forks into multiple variants
+- variants mutate around different strengths
+- an arena scores them on repeatable cases
+- winners are merged into a stronger skill
+- lineage is preserved for the next evolution
 
-If you are sharing the project, use these assets:
+This is still bounded engineering, not silent self-modification. Pantheon should generate, audit, benchmark, and propose skill evolution. It should not secretly replace installed skills.
 
-- [Logo / wordmark](pantheon/assets/pantheon-logo.svg)
-- [Icon mark](pantheon/assets/pantheon-mark.svg)
-- [Social preview](pantheon/assets/pantheon-social.svg)
-- [Workflow icon line](pantheon/assets/pantheon-icon-line.svg)
+## Brand Asset
 
-<p align="center">
-  <img src="pantheon/assets/pantheon-social.svg" width="100%" alt="Pantheon Skills social preview">
-</p>
+Use [pantheon/assets/pantheon-hero-gpt.png](pantheon/assets/pantheon-hero-gpt.png) as the main project hero or social preview.
 
 ## Commands
 

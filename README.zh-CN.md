@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="pantheon/assets/pantheon-logo.svg" width="100%" alt="Pantheon Skills">
+  <img src="pantheon/assets/pantheon-hero-gpt.png" width="100%" alt="Pantheon Skills">
 </p>
 
 <p align="center">
@@ -9,7 +9,9 @@
   <a href="README.md"><img alt="English README" src="https://img.shields.io/badge/docs-English-0969da?style=flat-square"></a>
 </p>
 
-Pantheon Skills 是一个小工具：把你反复告诉 AI Agent 的工作流，沉淀成可复用的 Codex skill。
+Pantheon Skills 是一个用于进化 Codex skills 的框架：把你反复告诉 AI Agent 的工作流，沉淀成可复用、可审计、可继续迭代的 skill。
+
+它不是 prompt 合集，而是一个 skill evolution loop：seed、fork、mutate、score、select、merge、preserve lineage。
 
 如果你总是在重复告诉 Agent：
 
@@ -42,19 +44,27 @@ frontend-tool-builder/
 
 然后它会 audit 这个 skill，也可以在固定 benchmark case 上和普通生成方式做对比。
 
-<p align="center">
-  <img src="pantheon/assets/pantheon-icon-line.svg" width="100%" alt="Brief to scaffold to audit to ship">
-</p>
-
 ## 一句话解释
 
 Pantheon 不是一个“神秘的自进化 Agent”。
 
-它更像一个 skill 工厂：
+它更像一个有边界的 skill 进化系统：
 
 ```text
-重复工作流 -> 生成 skill 草稿 -> audit -> benchmark -> 保留更好的版本
+重复工作流 -> seed skill -> 多个变体 -> arena 评分 -> 合并胜者 -> 保存 lineage
 ```
+
+## Skill Evolution
+
+Pantheon 会从一个 seed workflow 开始，生成多个互相竞争的 skill variants。每个变体强调不同策略：
+
+- **Archivist**：保存可复用的项目记忆
+- **Smith**：把重复操作变成 scripts、references 和结构化流程
+- **Oracle**：优化触发条件和语言表达
+- **Judge**：强化验证、安全边界和可审计性
+- **Arena**：面向固定 benchmark case 优化
+
+这些变体会进入同一个 arena，用同一套标准评分。更强的变体会被选择、融合，形成 ascended skill。整个过程会留下 lineage report，下一次进化从证据开始，而不是从感觉开始。
 
 ## 60 秒跑起来
 
@@ -73,27 +83,6 @@ make demo
 Pantheon audit: 10 passed, 0 failed
 Skill-forge experiment: 9 passed, 0 failed
 ```
-
-## 什么是 Codex Skill?
-
-一个 Codex skill 本质上就是一个文件夹，里面有一个 `SKILL.md`，告诉 Codex：
-
-- 什么时候应该触发这个 skill
-- 这个工作流应该怎么执行
-- 需要参考哪些规则、脚本、检查项
-- 完成前应该怎么验证
-
-最小结构：
-
-```text
-my-skill/
-├── SKILL.md
-├── agents/openai.yaml
-├── references/
-└── scripts/
-```
-
-Pantheon 帮你创建、检查、评分和迭代这个文件夹。
 
 ## 常用命令
 
@@ -160,28 +149,24 @@ Use $pantheon to turn this repeated workflow into a validated Codex skill.
 
 ## 为什么叫万神殿？
 
-名字只是一个比喻：把有用的 Agent 工作流保存下来。
+名字来自美剧《Pantheon》的启发。
 
-不要被名字吓到。实际流程很朴素：
+这里真正有意思的不是“数字智能记得更多”，而是数字智能可以复制自己、分叉出多个版本、并行试错、合并有效经验，并把记忆跨代保存下来。
 
-1. 读一个工作流 brief
-2. 生成几个 skill 候选
-3. 用 audit 检查结构和安全边界
-4. 用 benchmark 在固定案例上评分
-5. 保存更好的版本和 lineage report
+Pantheon 把这个想法落到 AI-agent skills 上：
+
+- 一个重复工作流先变成 seed skill
+- seed skill 分叉成多个 variants
+- variants 围绕不同能力变异
+- arena 在固定 case 上评分
+- 胜出的 traits 被合并成更强 skill
+- lineage 被保存，供下一轮进化继续使用
+
+这不是无边界的自我修改。Pantheon 应该生成、审计、benchmark、提出 evolution，但不应该在没有确认的情况下替换已安装 skill。
 
 ## 品牌资产
 
-如果要分享项目，可以直接用这些素材：
-
-- [Logo / wordmark](pantheon/assets/pantheon-logo.svg)
-- [Icon mark](pantheon/assets/pantheon-mark.svg)
-- [Social preview](pantheon/assets/pantheon-social.svg)
-- [Workflow icon line](pantheon/assets/pantheon-icon-line.svg)
-
-<p align="center">
-  <img src="pantheon/assets/pantheon-social.svg" width="100%" alt="Pantheon Skills social preview">
-</p>
+主视觉图：[pantheon/assets/pantheon-hero-gpt.png](pantheon/assets/pantheon-hero-gpt.png)。
 
 ## Makefile 快捷命令
 
